@@ -1,0 +1,53 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+
+.registration {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #3E3E3E;
+}
+
+.register-button {
+  margin-top: auto;
+  border: 2px solid #fff;
+}
+
+.login {
+  flex: 3;
+  background-color: #dedede;
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.large-button {
+  border-radius: 15px;
+  display: block;
+  width: 200px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #3E3E3E;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text{
+  font-size: 20px;
+  color: #fff;
+
+}
