@@ -2,7 +2,6 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-@import "config/global.scss";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -14,4 +13,8 @@
 
 body {
   color: $dark-gray;
+}
+
+.form-control {
+  color: $dark-gray!important;
 }

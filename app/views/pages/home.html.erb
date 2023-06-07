@@ -2,7 +2,14 @@
   <div class="banner">
     <%= video_tag "UrgenciaBackground2.mp4", autoplay: true, loop: true, muted: true %>
     <div class="container">
-      <h1 class="text-center w-100 search-bar">SEARCH BAR</h1>
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 
