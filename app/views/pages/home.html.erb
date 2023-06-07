@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="homepage">
+  <div class="banner">
+    <%= video_tag "UrgenciaBackground2.mp4", autoplay: true, loop: true, muted: true %>
+    <%# <%= video_tag 'caminho/para/o/video.mp4', autoplay: true, loop: true, muted: true %>
+
+    <%# <video src="../../assets/videos/UrgenciaBackground2.mp4" autoplay loop muted></video> %>
+    <div class="container">
+      <h1 class="text-center w-100 search-bar">SEARCH BAR</h1>
+    </div>
+  </div>
+
+  <div class="hospitals-index">
+    <h2 class="text-center">Browse Hospitals</h2>
+    <% @hospitals.each do |hospital| %>
+      <h2><%= hospital.name %></h2>
+    <% end %>
+  </div>
+</div>
