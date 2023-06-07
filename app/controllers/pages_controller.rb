@@ -3,5 +3,11 @@ class PagesController < ApplicationController
 
   def home
     @hospitals = Hospital.all
+
+    if params[:query].present?
+      @hospitals = Hospital.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @hospitals = Hospital.all
+    end
   end
 end
