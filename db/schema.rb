@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142050) do
     t.index ["user_id"], name: "index_insurance_plans_on_user_id"
   end
 
-  create_table "medical_datum", force: :cascade do |t|
+  create_table "medical_records", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "blood_type"
     t.string "allergies"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142050) do
     t.string "health_conditions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_medical_datum_on_user_id"
+    t.index ["user_id"], name: "index_medical_records_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,5 +90,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142050) do
   add_foreign_key "coverages", "hospitals"
   add_foreign_key "coverages", "insurance_plans"
   add_foreign_key "insurance_plans", "users"
-  add_foreign_key "medical_datum", "users"
+  add_foreign_key "medical_records", "users"
 end
