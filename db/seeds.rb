@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 
 puts "Destroying all previous instances..."
@@ -20,12 +27,10 @@ puts "All previous instances destroyed!"
 
 puts "Creating hospitals..."
 10.times do
-  hospital = Hospital.create!(
+  Hospital.create!(
     name: Faker::Company.name,
     address: Faker::Address.full_address
   )
-
-
 end
 
 puts "Hospitals created!"
@@ -34,7 +39,7 @@ puts "Creating users..."
 
 def create_medical_records(user)
   MedicalRecord.create!(
-    user: User.last,
+    user: user,
     blood_type: Faker::Blood.type,
     height: Faker::Number.decimal(l_digits: 2),
     weight: Faker::Number.decimal(l_digits: 2),
@@ -52,7 +57,7 @@ position = 1
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     address: Faker::Address.full_address,
-    cpf: "#{Faker::Number.number(digits: 11)}",
+    cpf: Faker::Number.number(digits: 11),
     birthdate: Faker::Date.birthday(min_age: 18)
   )
   create_medical_records(User.last)
@@ -61,7 +66,6 @@ position = 1
     user: User.last,
     hospital: Hospital.all.sample,
     description: Faker::Lorem.sentence(word_count: rand(3..10)),
-    # faker color name for color_protocol instead of hex
     color_protocol: Faker::Color.color_name,
     position: position
   )
