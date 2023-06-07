@@ -1,53 +1,79 @@
-.login-page {
-  display: flex;
-  height: 100vh;
-}
+  .login-page {
+    display: flex;
+    height: 100vh;
+  }
 
-.registration {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
+  .registration {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3E3E3E;
+  }
+
+  .shadow-input {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .register-button {
+    margin-top: auto;
+    border: 2px solid #fff;
+    &:hover {
+      transition: 0.3s;
+      background-color: #dedede;
+      border: 2px solid #3E3E3E;
+      color: #3E3E3E;
+    }
+  }
+
+  .login {
+    flex: 3;
+    background-color: #dedede;
+    padding: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .centered-text {
+    text-align: center;
+  }
+
+  .large-button {
+    border-radius: 15px;
+    display: block;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 60px;
+    background-color: #3E3E3E;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+      border: 2px solid #3E3E3E;
+    }
+  }
+
+  .text{
+    font-size: 20px;
+    color: #fff;
+
+  }
+
+ .card-signup {
   justify-content: center;
   align-items: center;
-  background-color: #3E3E3E;
+  height: 100vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.register-button {
-  margin-top: auto;
-  border: 2px solid #fff;
-}
-
-.login {
-  flex: 3;
-  background-color: #dedede;
-  padding: 150px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.centered-text {
-  text-align: center;
-}
-
-.large-button {
-  border-radius: 15px;
-  display: block;
-  width: 200px;
-  font-size: 18px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #3E3E3E;
-  color: #fff;
-  text-decoration: none;
-  margin-top: 20px;
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.text{
-  font-size: 20px;
-  color: #fff;
-
+.form-inputs {
+  width: 60%;
+  margin: 0 auto;
 }

@@ -1,22 +1,29 @@
-<div class="login-page">
-  <div class="registration">
-    <%=image_tag "urg2.png"  %>
-      <p class="text">Acesse sua conta agora mesmo</p>
-    <%= link_to "Cadastrar", new_user_registration_path, class:"register-button large-button" %>
-  </div>
+<div class="card-signup">
+  <div class="login-page">
+    <div class="registration">
+      <%= image_tag "urg2.png", style: "width: 50%;" %>
+      <p class="text"><strong>Bem-vindo!</strong></p>
+      <p class="text">Cadastre a sua conta agora mesmo</p>
+      <%= link_to "Cadastrar", new_user_registration_path, class: "register-button large-button" %>
+    </div>
 
-  <div class="login">
-    <h2 class="centered-text">Acesse sua conta</h2>
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" } %>
-        <%= f.input :password, required: false, input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
+    <div class="login">
+      <h2 class="centered-text">Acesse sua conta</h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }, class: "shadow-input" %>
+          <%= f.input :password, required: false, input_html: { autocomplete: "current-password" }, class: "shadow-input" %>
+          <div class="d-flex justify-content-between">
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <%= link_to "Esqueci minha senha", new_user_password_path %>
+          </div>
+        </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Entrar", class: "large-button" %>
-      </div>
-    <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Entrar", class: "large-button" %>
+
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
