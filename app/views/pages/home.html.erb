@@ -1,9 +1,6 @@
 <div id="homepage">
   <div class="banner">
     <%= video_tag "UrgenciaBackground2.mp4", autoplay: true, loop: true, muted: true %>
-    <%# <%= video_tag 'caminho/para/o/video.mp4', autoplay: true, loop: true, muted: true %>
-
-    <%# <video src="../../assets/videos/UrgenciaBackground2.mp4" autoplay loop muted></video> %>
     <div class="container">
       <h1 class="text-center w-100 search-bar">SEARCH BAR</h1>
     </div>
@@ -12,7 +9,7 @@
   <div class="hospitals-index">
     <h2 class="text-center">Browse Hospitals</h2>
     <% @hospitals.each do |hospital| %>
-      <h2><%= hospital.name %></h2>
+      <%= link_to hospital.name, new_hospital_appointment_path(hospital) %>
     <% end %>
   </div>
 </div>
