@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  
+  resources :hospitals, except: :index do
+    resources :appointments, only: %i[show new create destroy]
+  end
+
 end

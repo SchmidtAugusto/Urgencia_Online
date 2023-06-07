@@ -53,7 +53,7 @@ position = 1
 10.times do
   User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: "123123",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     address: Faker::Address.full_address,
