@@ -1,0 +1,15 @@
+#footer {
+  padding: 2rem 4rem;
+  background-color: $dark-gray;
+
+  img {
+    width: 30%;
+    max-width: 200px;
+  }
+
+  .content {
+    margin: 0 auto;
+    gap: 1rem;
+    color: $body-color-custom;
+  }
+}

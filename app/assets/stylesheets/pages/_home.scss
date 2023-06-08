@@ -1,6 +1,8 @@
 // Specific CSS for your home-page
 #homepage {
   overflow-x: hidden;
+  gap: 4rem;
+  margin-bottom: 4rem;
 
   .banner {
     width: 100vw;
@@ -8,6 +10,11 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    img {
+      width: 30%;
+      max-width: 200px;
+    }
 
     video {
       position: absolute;
@@ -24,9 +31,19 @@
     }
 
     .search-bar {
-      padding: 32px;
-      background-color: #FFF;
+      margin: 0 auto;
+      max-width: 800px;
+
+      input {
+        border-radius: 10px;
+      }
     }
   }
 
+  .cards-wrapper {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }

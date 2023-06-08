@@ -78,7 +78,7 @@ User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   address: Faker::Address.full_address,
-  cpf: Faker::IDNumber.brazilian_citizen_number,
+  cpf: Faker::Number.number(digits: 11),
   birthdate: Faker::Date.birthday(min_age: 18),
   admin: true
 )
