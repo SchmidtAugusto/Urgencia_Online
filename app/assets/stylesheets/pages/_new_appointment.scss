@@ -1,0 +1,10 @@
+.appointment-new {
+  width: 1200px;
+  margin: 0 auto;
+  flex: 3;
+  background-color: $body-color-custom;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
