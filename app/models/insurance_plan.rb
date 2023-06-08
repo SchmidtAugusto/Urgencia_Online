@@ -1,5 +1,6 @@
 class InsurancePlan < ApplicationRecord
   belongs_to :user
+  has_many :coverages
 
   validates :name, :plan, presence: true
   validates :product, :id_code, uniqueness: true
