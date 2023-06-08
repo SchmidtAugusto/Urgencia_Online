@@ -1,3 +1,4 @@
+
 <%= simple_form_for [@hospital, @appointment] do |f| %>
   <%= f.input :user_name, as: :string, input_html: { readonly: true, value: "#{current_user.first_name} #{current_user.last_name}" }, label: 'Your Name' %>
   <%= f.input :hospital_name, as: :string, input_html: { readonly: true, value: @hospital.name }, label: 'Hospital Name' %>
