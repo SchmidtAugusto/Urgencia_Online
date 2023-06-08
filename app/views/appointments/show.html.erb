@@ -1,4 +1,20 @@
-<h1>Show <%= @appointment.user.first_name %></h1>
+<div class="waitlist-page container">
+  <div class="waitlist-card">
+    <h1>Waitlist</h1>
+    <div class="waitlist-info d-flex justify-content-around">
+      <div class="position">
+        <h2>Your Position:</h2>
+        <p><%= @appointment.position %></p>
+      </div>
 
-<p>Este eh um appointment</p>
-<%= @appointment.hospital.name %>
+      <div class="wait-time">
+        <h2>Estimated Wait Time:</h2>
+        <p><%= @appointment_queue_duration %></p>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <%= image_tag "MapsHospital2.png" %>
+    </div>
+  </div>
+</div>

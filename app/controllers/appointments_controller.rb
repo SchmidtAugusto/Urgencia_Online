@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show destroy]
 
-  def show; end
+  def show
+    @appointment_queue_duration = queue_duration_calc(@appointment.position)
+  end
 
   def new
     @appointment = Appointment.new
@@ -26,6 +28,21 @@ class AppointmentsController < ApplicationController
   end
 
   private
+
+  def queue_duration_calc(position)
+    position_minutes = position * 20
+    if position_minutes >= 60
+      hours = position_minutes / 60
+      remaining_minutes = position_minutes % 60
+      if hours == 1
+        "#{hours} hour and #{remaining_minutes} minutes"
+      else
+        "#{hours} hours and #{remaining_minutes} minutes"
+      end
+    else
+      "#{position_minutes} minutes"
+    end
+  end
 
   def set_appointment
     @appointment = Appointment.find(params[:id])
