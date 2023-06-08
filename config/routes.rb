@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :hospitals, except: %i[index show] do
-    resources :appointments, only: %i[show new create destroy]
+    resources :appointments, only: %i[new create destroy]
   end
 
+  resources :appointments, only: %i[show]
 end
