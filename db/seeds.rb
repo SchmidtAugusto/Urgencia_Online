@@ -66,7 +66,7 @@ position = 1
     user: User.last,
     hospital: Hospital.all.sample,
     description: Faker::Lorem.sentence(word_count: rand(3..10)),
-    color_protocol: Faker::Color.color_name,
+    color_protocol: Appointment::COLOR_PROTOCOLS.sample,
     position: position
   )
   position += 1

@@ -36,6 +36,11 @@
             </div>
           </li>
         <% else %>
+          <% if request.fullpath != root_path %>
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>

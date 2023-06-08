@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
     @hospital = Hospital.find(params[:hospital_id])
     @appointment.user = current_user
     @appointment.hospital = @hospital
-    @appointment.position = Appointment.where(hospital_id: @hospital, done: false).count
+    @appointment.position = Appointment.where(hospital_id: @hospital, done: false).count + 1
 
     if @appointment.save
       redirect_to appointment_path(@appointment)

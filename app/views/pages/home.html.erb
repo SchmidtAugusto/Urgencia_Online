@@ -1,11 +1,12 @@
 <div id="homepage" class="d-grid">
   <div class="banner">
-    <%= video_tag "UrgenciaBackground2.mp4", autoplay: true, loop: true, muted: true %>
+    <%= video_tag "UrgBack.mp4", autoplay: true, loop: true, muted: true %>
     <div class="container text-center">
       <%= image_tag "uo_logo"%>
       <h1 class="text-center">Urgência Online</h1>
       <p class="text-center">Procure por um hospital específico</p>
       <%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
+
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
