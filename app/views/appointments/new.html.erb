@@ -1,8 +1,8 @@
 <%= simple_form_for [@hospital, @appointment] do |f| %>
   <%= f.input :user_name, as: :string, input_html: { readonly: true, value: "#{current_user.first_name} #{current_user.last_name}" }, label: 'Your Name' %>
   <%= f.input :hospital_name, as: :string, input_html: { readonly: true, value: @hospital.name }, label: 'Hospital Name' %>
-  <%= f.input :color_protocol %>
-  <%= f.input :description %>
+  <%= f.input :color_protocol, collection: Appointment::COLOR_PROTOCOLS %>
+  <%= f.input :description, label: 'Descrição (descreva como se sente, informando sua temperatura e pressão):' %>
   <div class="d-flex gap-3">
     <%= link_to "Cancel", root_path, class: "btn btn-primary w-100 text-center" %>
     <%= f.button :submit, "Create", class: "btn btn-primary w-100 text-center"%>
