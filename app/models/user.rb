@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_one :insurance_plan
   has_many :appointments
+  has_one_attached :photo
 
   validates :first_name, :last_name, :birthdate, :address, presence: true
   validates :email, presence: true, uniqueness: true
