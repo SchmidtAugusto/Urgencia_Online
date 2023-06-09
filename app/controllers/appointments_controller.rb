@@ -5,11 +5,11 @@ class AppointmentsController < ApplicationController
     @appointment_queue_duration = queue_duration_calc(@appointment.position)
     @hospital = Hospital.find(@appointment.hospital_id)
     @hospitals = Hospital.all
-    @markers =
-      [{
-        lat: @hospital.latitude,
-        lng: @hospital.longitude
-      }]
+    # @markers =
+    #   [{
+    #     lat: @hospital.latitude,
+    #     lng: @hospital.longitude
+    #   }]
   end
 
   def new
