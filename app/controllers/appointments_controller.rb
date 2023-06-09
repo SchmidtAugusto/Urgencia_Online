@@ -42,12 +42,12 @@ class AppointmentsController < ApplicationController
       hours = position_minutes / 60
       remaining_minutes = position_minutes % 60
       if hours == 1
-        "#{hours} hour and #{remaining_minutes} minutes"
+        "#{hours} hora e #{remaining_minutes} minutos"
       else
-        "#{hours} hours and #{remaining_minutes} minutes"
+        "#{hours} horas e #{remaining_minutes} minutos"
       end
     else
-      "#{position_minutes} minutes"
+      "#{position_minutes} minutos"
     end
   end
 
