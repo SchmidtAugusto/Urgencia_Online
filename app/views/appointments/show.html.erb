@@ -1,15 +1,15 @@
 <div class="waitlist-page container">
   <div class="waitlist-card">
-    <h1>Waitlist</h1>
+    <h1>Fila de espera</h1>
     <div class="waitlist-info d-flex justify-content-around">
       <div class="position">
-        <h2>Your Position:</h2>
-        <p><%= @appointment.position %></p>
+        <p>Sua posição:</p>
+        <h2><%= @appointment.position %></h2>
       </div>
 
       <div class="wait-time">
-        <h2>Estimated Wait Time:</h2>
-        <p><%= @appointment_queue_duration %></p>
+        <p>Tempo estimado de espera:</p>
+        <h2><%= @appointment_queue_duration %></h2>
       </div>
     </div>
 
