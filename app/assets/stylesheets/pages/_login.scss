@@ -64,6 +64,17 @@
     }
   }
 
+  .login-button{
+    background-color: $dark-gray !important;
+    max-height: 80px;
+
+    &:hover {
+      border: 2px solid $dark-gray;
+      color: $dark-gray;
+      background-color: #ffff !important;
+    }
+  }
+
   .text{
     font-size: 20px;
     color: $body-color-custom;
