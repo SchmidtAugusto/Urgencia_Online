@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+require "rubygems/source"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
