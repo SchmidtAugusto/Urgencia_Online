@@ -2,15 +2,21 @@
   width: 100%;
   height: 260px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   img {
     width: 30%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px 0 0 5px;
   }
 
   .hospital-info {
     padding: 1rem 1rem 0 1rem;
+
+    h3{
+      color: #3E3E3E;
+    }
   }
 
   .right-content {
@@ -21,5 +27,9 @@
 
   .time-position{
     padding: 1rem 1rem 0 1rem;
+  }
+
+  .btn{
+    border-radius: 0 0 5px 0;
   }
 }
