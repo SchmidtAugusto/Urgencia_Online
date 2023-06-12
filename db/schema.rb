@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_190541) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_194316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,14 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_190541) do
 
   create_table "insurance_plans", force: :cascade do |t|
     t.string "name"
-    t.integer "product"
-    t.bigint "id_code"
-    t.string "plan"
-    t.bigint "cns"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_insurance_plans_on_user_id"
   end
 
   create_table "medical_records", force: :cascade do |t|
@@ -95,6 +89,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_190541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_medical_records_on_user_id"
+  end
+
+  create_table "plan_details", force: :cascade do |t|
+    t.bigint "insurance_plan_id", null: false
+    t.integer "product"
+    t.bigint "id_code"
+    t.string "plan"
+    t.bigint "cns"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_plan_id"], name: "index_plan_details_on_insurance_plan_id"
+    t.index ["user_id"], name: "index_plan_details_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,6 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_190541) do
   add_foreign_key "appointments", "users"
   add_foreign_key "coverages", "hospitals"
   add_foreign_key "coverages", "insurance_plans"
-  add_foreign_key "insurance_plans", "users"
   add_foreign_key "medical_records", "users"
+  add_foreign_key "plan_details", "insurance_plans"
+  add_foreign_key "plan_details", "users"
 end

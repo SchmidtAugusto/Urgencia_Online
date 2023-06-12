@@ -19,6 +19,7 @@ puts "Destroying all previous instances..."
 Appointment.destroy_all
 Coverage.destroy_all
 InsurancePlan.destroy_all
+PlanDetail.destroy_all
 MedicalRecord.destroy_all
 User.destroy_all
 Hospital.destroy_all
@@ -134,7 +135,17 @@ puts "Creating insurance plans..."
 
 5.times do
   InsurancePlan.create!(
-    name: Faker::Company.name,
+    name: Faker::Company.name
+  )
+end
+
+puts "Insurance plans created!"
+
+puts "Creating plan details..."
+
+5.times do
+  PlanDetail.create!(
+    insurance_plan: InsurancePlan.all.sample,
     product: rand(100..999),
     id_code: Faker::Number.number(digits: 6),
     plan: Faker::Company.buzzword,
@@ -143,7 +154,7 @@ puts "Creating insurance plans..."
   )
 end
 
-puts "Insurance plans created!"
+puts "Plan details created!"
 
 puts "Creating coverages..."
 
