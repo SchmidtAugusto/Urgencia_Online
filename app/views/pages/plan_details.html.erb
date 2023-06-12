@@ -1,0 +1,22 @@
+<div class="content">
+  <div class="two_column left">
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/account_details">Detalhes da conta</a>
+    <a data-panel="[]" class="nav_item active" href="http://localhost:3000/plan_details">Detalhes do plano</a>
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
+  </div>
+  <div class="two_column right">
+    <% if @plan_detail.nil? %>
+      <p>Nome do plano: </p>
+      <p>Produto: </p>
+      <p>id_code: </p>
+      <p>Plano: </p>
+      <p>CNS: </p>
+    <% else %>
+      <p>Nome do plano: <%= @plan_detail.insurance_plans.name %></p>
+      <p>Produto: <%= @plan_detail.product %></p>
+      <p>id_code: <%= @plan_detail.id_code %></p>
+      <p>Plano: <%= @plan_detail.plan %></p>
+      <p>CNS: <%= @plan_detail.cns %></p>
+    <% end %>
+	</div>
+</div>

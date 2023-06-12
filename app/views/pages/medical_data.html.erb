@@ -1,0 +1,22 @@
+<div class="content">
+  <div class="two_column left">
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/account_details">Detalhes da conta</a>
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/plan_details">Detalhes do plano</a>
+    <a data-panel="[]" class="nav_item active" href="http://localhost:3000/medical_data">Informações medicas</a>
+  </div>
+  <div class="two_column right">
+    <% if @medical_data.nil? %>
+      <p>Tipo sanguineo: </p>
+      <p>Alergias: </p>
+      <p>Peso: </p>
+      <p>Altura: </p>
+      <p>Condições especiais: </p>
+    <% else %>
+      <p>Tipo sanguineo: <%= @medical_data.blood_type %></p>
+      <p>Alergias: <%= @medical_data.allergies %></p>
+      <p>Peso: <%= @medical_data.weight %></p>
+      <p>Altura: <%= @medical_data.height %></p>
+      <p>Condições especiais: <%= @medical_data.health_conditions %></p>
+    <% end %>
+	</div>
+</div>
