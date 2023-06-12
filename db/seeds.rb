@@ -26,12 +26,56 @@ Hospital.destroy_all
 puts "All previous instances destroyed!"
 
 puts "Creating hospitals..."
-10.times do
-  Hospital.create!(
-    name: Faker::Company.name,
-    address: Faker::Address.full_address
-  )
-end
+
+Hospital.create!(
+  name: 'Hospital Santa Paula',
+  address: 'Av. Santo Amaro, 2468 - Brooklin, São Paulo - SP, 04556-100'
+)
+
+Hospital.create!(
+  name: 'Hospital Alemão Oswaldo Cruz',
+  address: 'R. Treze de Maio, 1815 - Bela Vista, São Paulo - SP, 01323-020'
+)
+
+Hospital.create!(
+  name: 'Hospital Israelita Albert Einstein',
+  address: 'Av. Albert Einstein, 627/701 - Morumbi - CEP 05652- 900'
+)
+
+Hospital.create!(
+  name: 'Hospital LeForte',
+  address: 'Rua dos Três Irmãos, 121 - Morumbi, São Paulo - SP, 05615-190'
+)
+
+Hospital.create!(
+  name: 'Hospital Samaritano',
+  address: 'R. Conselheiro Brotero, 1486 - Higienópolis, São Paulo - SP, 01232-010'
+)
+
+Hospital.create!(
+  name: 'Hospital Santa Catarina',
+  address: 'Av. Paulista, 200 - Bela Vista, São Paulo - SP, 01310-000'
+)
+
+Hospital.create!(
+  name: 'Hospital São Camilo',
+  address: 'Av. Pompéia, 1178 - Pompeia, São Paulo - SP, 05022-001'
+)
+
+Hospital.create!(
+  name: 'Hospital São Luiz',
+  address: 'Rua Engenheiro Oscar Americano, 840 - Jardim Guedala, São Paulo - SP, 05605-050'
+)
+
+Hospital.create!(
+  name: 'Hospital Sírio Libanês',
+  address: 'Rua Dona Adma Jafet, 115 - Bela Vista, São Paulo - SP, 01308-050'
+)
+
+Hospital.create!(
+  name: 'Hospital Eduardo Vasconcelos',
+  address: 'R. Borges Lagoa, 1450 - Vila Clementino, São Paulo - SP, 04038-905'
+)
 
 puts "Hospitals created!"
 

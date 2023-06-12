@@ -50,4 +50,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+
+  .hospital-image {
+    width: 30%;
+    max-width: 100px;
+    border-radius: 10px;
+    // Outros estilos desejados para as imagens dos hospitais
+  }
 }
