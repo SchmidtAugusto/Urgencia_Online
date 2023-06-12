@@ -30,8 +30,8 @@
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Detalhes da conta", "#", class: "dropdown-item" %>
-              <%= link_to "Histórico", "#", class: "dropdown-item" %>
+              <%= link_to "Detalhes da conta", account_details_path, class: "dropdown-item" %>
+              <%= link_to "Histórico", appointments_path, class: "dropdown-item" %>
               <%= link_to "Sair da conta", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
