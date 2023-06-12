@@ -1,1 +1,15 @@
-Mi conta
+<div class="content">
+  <div class="two_column left">
+    <a data-panel="[]" class="nav_item active" href="http://localhost:3000/account_details">Detalhes da conta</a>
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/plan_details">Detalhes do plano</a>
+    <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
+  </div>
+  <div class="two_column right">
+    <p>Nome: <%= @user.first_name %></p>
+    <p>Sobrenome: <%= @user.last_name %></p>
+    <p>E-mail: <%= @user.email %></p>
+    <p>Cpf: <%= @user.cpf %></p>
+    <p>Nascimento: <%= @user.birthdate.strftime("%d/%m/%Y") %></p>
+    <p>Endereço: <%= @user.address %></p>
+	</div>
+</div>

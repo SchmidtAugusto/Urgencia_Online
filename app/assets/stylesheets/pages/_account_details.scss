@@ -1,0 +1,28 @@
+.two_column {
+  vertical-align: top;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+}
+
+.two_column.left {
+  width: 220px;
+  float: left;
+}
+
+.two_column.right {
+    vertical-align: top;
+    margin-left: 11px;
+    overflow: hidden;
+}
+
+.two_column .nav_item {
+  padding: 15px;
+  color: #000000;
+  font-size: 14px;
+  display: block;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
