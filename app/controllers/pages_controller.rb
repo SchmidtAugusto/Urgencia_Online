@@ -10,4 +10,7 @@ class PagesController < ApplicationController
       @hospitals = Hospital.all
     end
   end
+
+  def account_details
+  end
 end

@@ -27,6 +27,12 @@
             <div class="hospital-info">
               <h3><%= link_to hospital.name, new_hospital_appointment_path(hospital) %></h3>
               <p><%= hospital.address %></p>
+              <% time = Appointment.where(hospital_id: hospital).count * 20 %>
+                <% if time >= 60 %>
+                  <p>Tempo estimado: <%= time/60 %>h</p>
+                <% else%>
+                  <p>Tempo estimado: <%= time %>min</p>
+                <% end %>
             </div>
             <%= link_to "Entrar na fila", new_hospital_appointment_path(hospital), class: "btn btn-primary w-100" %>
           </div>

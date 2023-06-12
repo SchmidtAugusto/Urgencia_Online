@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :appointments, only: %i[index show]
+
+  get :account_details, to: "pages#account_details"
 end
