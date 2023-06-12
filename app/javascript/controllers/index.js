@@ -4,10 +4,11 @@
 
 import { application } from "./application"
 
+import AccountDetailsController from "./account_details_controller"
+application.register("account-details", AccountDetailsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
-
-console.log("hi from index.js");

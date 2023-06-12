@@ -28,55 +28,18 @@ puts "All previous instances destroyed!"
 
 puts "Creating hospitals..."
 
-Hospital.create!(
-  name: 'Hospital Santa Paula',
-  address: 'Av. Santo Amaro, 2468 - Brooklin, São Paulo - SP, 04556-100'
-)
+hospitals = [['Hospital Santa Paula', 'Av. Santo Amaro, 2468 - Brooklin, São Paulo - SP, 04556-100', 'app/assets/images/hospitals/H-Santa-Paula.jpg'], ['Hospital Alemão Oswaldo Cruz', 'R. Treze de Maio, 1815 - Bela Vista, São Paulo - SP, 01323-020', 'app/assets/images/hospitals/H-Alemão-Oswaldo-Cruz.jpg'],
+  ['Hospital Israelita Albert Einstein', 'Av. Albert Einstein, 627/701 - Morumbi - CEP 05652- 900', 'app/assets/images/hospitals/H-Israelita-Albert-Einstein.jpg'], ['Hospital LeForte', 'Rua dos Três Irmãos, 121 - Morumbi, São Paulo - SP, 05615-190', 'app/assets/images/hospitals/H-Leforte.jpg'],
+  ['Hospital Samaritano', 'R. Conselheiro Brotero, 1486 - Higienópolis, São Paulo - SP, 01232-010', 'app/assets/images/hospitals/H-Samaritano.jpg'], ['Hospital São Camilo', 'Av. Pompéia, 1178 - Pompeia, São Paulo - SP, 05022-001', 'app/assets/images/hospitals/H-São-Camilo.jpg'],
+  ['Hospital São Luiz', 'Rua Engenheiro Oscar Americano, 840 - Jardim Guedala, São Paulo - SP, 05605-050', 'app/assets/images/hospitals/H-São-Luiz.jpg']]
 
-Hospital.create!(
-  name: 'Hospital Alemão Oswaldo Cruz',
-  address: 'R. Treze de Maio, 1815 - Bela Vista, São Paulo - SP, 01323-020'
-)
-
-Hospital.create!(
-  name: 'Hospital Israelita Albert Einstein',
-  address: 'Av. Albert Einstein, 627/701 - Morumbi - CEP 05652- 900'
-)
-
-Hospital.create!(
-  name: 'Hospital LeForte',
-  address: 'Rua dos Três Irmãos, 121 - Morumbi, São Paulo - SP, 05615-190'
-)
-
-Hospital.create!(
-  name: 'Hospital Samaritano',
-  address: 'R. Conselheiro Brotero, 1486 - Higienópolis, São Paulo - SP, 01232-010'
-)
-
-Hospital.create!(
-  name: 'Hospital Santa Catarina',
-  address: 'Av. Paulista, 200 - Bela Vista, São Paulo - SP, 01310-000'
-)
-
-Hospital.create!(
-  name: 'Hospital São Camilo',
-  address: 'Av. Pompéia, 1178 - Pompeia, São Paulo - SP, 05022-001'
-)
-
-Hospital.create!(
-  name: 'Hospital São Luiz',
-  address: 'Rua Engenheiro Oscar Americano, 840 - Jardim Guedala, São Paulo - SP, 05605-050'
-)
-
-Hospital.create!(
-  name: 'Hospital Sírio Libanês',
-  address: 'Rua Dona Adma Jafet, 115 - Bela Vista, São Paulo - SP, 01308-050'
-)
-
-Hospital.create!(
-  name: 'Hospital Eduardo Vasconcelos',
-  address: 'R. Borges Lagoa, 1450 - Vila Clementino, São Paulo - SP, 04038-905'
-)
+puts "Seeding..."
+hospitals.each do |hospital|
+  h = Hospital.new(name: hospital[0], address: hospital[1])
+  h.photo.attach(io: File.open(hospital[2]), filename: "#{hospital[0].downcase}.jpg")
+  h.save!
+  puts h.name
+end
 
 puts "Hospitals created!"
 
