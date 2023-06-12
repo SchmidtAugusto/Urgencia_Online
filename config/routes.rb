@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :appointments, only: %i[new create destroy]
   end
 
-  resources :appointments, only: %i[show]
+  resources :appointments, only: %i[index show]
 end
