@@ -25,15 +25,24 @@
           <%= image_tag "MapsHospital2.png" %>
           <div class="right-content">
             <div class="hospital-info">
-              <h3><%= link_to hospital.name, new_hospital_appointment_path(hospital) %></h3>
+              <h3><%= link_to hospital.name, hospital_path(hospital) %></h3>
               <p><%= hospital.address %></p>
-              <% time = Appointment.where(hospital_id: hospital).count * 20 %>
-                <% if time >= 60 %>
-                  <p>Tempo estimado: <%= time/60 %>h</p>
-                <% else%>
-                  <p>Tempo estimado: <%= time %>min</p>
-                <% end %>
+
             </div>
+              <% position = Appointment.where(hospital_id: hospital).count %>
+              <% position_minutes = position * 20
+                if position_minutes >= 60
+                  hours = position_minutes / 60
+                  remaining_minutes = position_minutes % 60
+                  if hours == 1 %>
+                    <p class='time-position'>Tempo estimado: <%= "#{hours} hora e #{remaining_minutes} minutos" %></p>
+                  <% else %>
+                    <p class='time-position'>Tempo estimado: <%= "#{hours} horas e #{remaining_minutes} minutos" %></p>
+                  <% end
+                else %>
+                  <p class='time-position'>Tempo estimado: <%= "#{position_minutes} minutos" %></p>
+                <% end %>
+
             <%= link_to "Entrar na fila", new_hospital_appointment_path(hospital), class: "btn btn-primary w-100" %>
           </div>
         </div>
