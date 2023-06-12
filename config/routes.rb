@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :appointments, only: %i[new create destroy]
   end
 
+  patch "appointments/:id", to: "appointments#done", as: "appointment_done"
+
   resources :appointments, only: %i[index show]
 
   get :account_details, to: "pages#account_details"

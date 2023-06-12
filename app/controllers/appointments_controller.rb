@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[show destroy]
+  before_action :set_appointment, only: %i[show destroy done]
 
   def index
     @appointments = Appointment.where(user_id: current_user)
@@ -39,7 +39,31 @@ class AppointmentsController < ApplicationController
   def destroy
   end
 
+  def done
+    @appointment.done = true
+    @appointment.save
+    reorder_queue!(@appointment)
+
+    HospitalChannel.broadcast_to(
+      @appointment.hospital,
+      @appointment.position
+    )
+
+    redirect_to root_path
+  end
+
   private
+
+  def reorder_queue!(appointment)
+    hospital = appointment.hospital
+    appointments = Appointment.where(hospital_id: hospital, done: false, color_protocol: appointment.color_protocol)
+    appointments.each_with_index do |a, index|
+      next if a.position < appointment.position
+
+      a.position = index + 1
+      a.save
+    end
+  end
 
   def queue_duration_calc(position)
     position_minutes = position * 20

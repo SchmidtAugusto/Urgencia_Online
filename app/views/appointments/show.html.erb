@@ -1,15 +1,18 @@
 <div class="waitlist-page container">
   <div class="waitlist-card">
     <h1>Fila de espera</h1>
-    <div class="waitlist-info d-flex justify-content-around">
+    <div class="waitlist-info d-flex justify-content-around"
+         data-controller="hospital-subscription"
+         data-hospital-subscription-hospital-id-value="<%= @appointment.hospital.id %>">
+
       <div class="position">
         <p>Sua posição:</p>
-        <h2><%= @appointment.position %></h2>
+        <h2 data-hospital-subscription-target="position"><%= @appointment.position %></h2>
       </div>
 
       <div class="wait-time">
         <p>Tempo estimado de espera:</p>
-        <h2><%= @appointment_queue_duration %></h2>
+        <h2 data-hospital-subscription-target="minutes"><%= @appointment_queue_duration %></h2>
       </div>
     </div>
     <div class="map-container">
@@ -19,5 +22,7 @@
            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+
+    <%= button_to 'Cancelar', appointment_done_path(@appointment), method: :patch, class: 'btn btn-danger' %>
   </div>
 </div>
