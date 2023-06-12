@@ -1,6 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show destroy]
 
+  def index
+    @appointments = Appointment.where(user_id: current_user)
+  end
+
   def show
     @appointment_queue_duration = queue_duration_calc(@appointment.position)
     @hospital = Hospital.find(@appointment.hospital_id)

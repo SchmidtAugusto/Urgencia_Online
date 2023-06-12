@@ -16,5 +16,6 @@
   .right-content {
     display: grid;
     align-content: space-between;
+    flex-grow: 1;
   }
 }
