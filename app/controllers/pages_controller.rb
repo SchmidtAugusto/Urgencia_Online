@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :help]
 
   def home
     @hospitals = Hospital.all
@@ -12,5 +12,8 @@ class PagesController < ApplicationController
   end
 
   def account_details
+  end
+
+  def help
   end
 end

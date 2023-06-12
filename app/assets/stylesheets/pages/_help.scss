@@ -1,0 +1,24 @@
+#help-page {
+  background-image: url("Background-About.jpg");
+  background-position: center;
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  text-align: justify;
+
+
+  .square {
+    max-width: 800px;
+    padding-bottom: 4rem;
+  }
+
+  .titulo-ajuda {
+    font-family: "Arial", sans-serif;
+    padding: 80px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 128px;
+    font-weight: 500;
+    letter-spacing: -.06em
+  }
+}
