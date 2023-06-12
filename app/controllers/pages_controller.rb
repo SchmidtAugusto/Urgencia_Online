@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :help]
   before_action :set_user, only: %i[account_details plan_details medical_data]
-  skip_before_action :authenticate_user!, only: [:home]
 
   def home
     @hospitals = Hospital.all
@@ -15,6 +15,9 @@ class PagesController < ApplicationController
   def account_details
   end
 
+  def help
+  end
+  
   def plan_details
     @plan_detail = PlanDetail.find_by(user_id: @user)
   end
