@@ -28,7 +28,8 @@ puts "All previous instances destroyed!"
 
 puts "Creating hospitals..."
 
-hospitals = [['Hospital Santa Paula', 'Av. Santo Amaro, 2468 - Brooklin, São Paulo - SP, 04556-100', 'app/assets/images/hospitals/H-Santa-Paula.jpg'], ['Hospital Alemão Oswaldo Cruz', 'R. Treze de Maio, 1815 - Bela Vista, São Paulo - SP, 01323-020', 'app/assets/images/hospitals/H-Alemão-Oswaldo-Cruz.jpg'],
+hospitals = [['Sabará Hospital Infantil', 'Av. Angélica, 1987 - Consolação, São Paulo - SP, 01227-200', 'app/assets/images/hospitals/H-Infantil-Sabara.jpg'], ['Hospital Sírio Libanês', 'Rua Dona Adma Jafet, 115 - Bela Vista, São Paulo - SP, 01308-050', 'app/assets/images/hospitals/H-SirioLibanes.jpg'], ['Hospital Santa Catarina', 'Av. Paulista, 200 - Bela Vista, São Paulo - SP, 01310-000', 'app/assets/images/hospitals/H-Santa-Catarina.jpg'],
+  ['Hospital Santa Paula', 'Av. Santo Amaro, 2468 - Brooklin, São Paulo - SP, 04556-100', 'app/assets/images/hospitals/H-Santa-Paula.jpg'], ['Hospital Alemão Oswaldo Cruz', 'R. Treze de Maio, 1815 - Bela Vista, São Paulo - SP, 01323-020', 'app/assets/images/hospitals/H-Alemão-Oswaldo-Cruz.jpg'],
   ['Hospital Israelita Albert Einstein', 'Av. Albert Einstein, 627/701 - Morumbi - CEP 05652- 900', 'app/assets/images/hospitals/H-Israelita-Albert-Einstein.jpg'], ['Hospital LeForte', 'Rua dos Três Irmãos, 121 - Morumbi, São Paulo - SP, 05615-190', 'app/assets/images/hospitals/H-Leforte.jpg'],
   ['Hospital Samaritano', 'R. Conselheiro Brotero, 1486 - Higienópolis, São Paulo - SP, 01232-010', 'app/assets/images/hospitals/H-Samaritano.jpg'], ['Hospital São Camilo', 'Av. Pompéia, 1178 - Pompeia, São Paulo - SP, 05022-001', 'app/assets/images/hospitals/H-São-Camilo.jpg'],
   ['Hospital São Luiz', 'Rua Engenheiro Oscar Americano, 840 - Jardim Guedala, São Paulo - SP, 05605-050', 'app/assets/images/hospitals/H-São-Luiz.jpg']]
