@@ -3,12 +3,14 @@ class PlanDetailsController < ApplicationController
     @plan_detail = PlanDetail.new(plan_params)
     @plan_detail.user = current_user
     @plan_detail.save
+    authorize @plan_detail
 
     redirect_to plan_details_path
   end
 
   def update
     @plan_detail = PlanDetail.find(params[:id])
+    authorize @plan_detail
 
     if @plan_detail.update(plan_params)
       redirect_to plan_details_path, notice: 'Informações médicas atualizadas!'

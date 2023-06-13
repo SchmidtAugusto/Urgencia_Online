@@ -3,12 +3,14 @@ class MedicalRecordsController < ApplicationController
     @medical_data = MedicalRecord.new(medical_params)
     @medical_data.user = current_user
     @medical_data.save
+    authorize @medical_data
 
     redirect_to medical_data_path
   end
 
   def update
     @medical_data = MedicalRecord.find(params[:id])
+    authorize @medical_data
 
     if @medical_data.update(medical_params)
       redirect_to medical_data_path, notice: 'Informações médicas atualizadas!'

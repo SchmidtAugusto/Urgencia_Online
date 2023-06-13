@@ -1,9 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="account-details"
+// Connects to data-controller="plan-details"
 export default class extends Controller {
   connect() {
-
   }
   edit(event) {
     const inputs = document.getElementsByClassName("account-input");
