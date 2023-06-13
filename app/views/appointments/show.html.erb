@@ -1,7 +1,11 @@
-<div class="waitlist-page container">
+<div class="waitlist-page container"
+     data-controller="map"
+     data-map-markers-value="<%= @markers.to_json %>"
+     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
   <div class="waitlist-card">
     <h1>Fila de espera</h1>
-    <div class="waitlist-info d-flex justify-content-around"
+    <div class="waitlist-info d-grid"
          data-controller="hospital-subscription"
          data-hospital-subscription-hospital-id-value="<%= @appointment.hospital.id %>">
 
@@ -14,12 +18,26 @@
         <p>Tempo estimado de espera:</p>
         <h2 data-hospital-subscription-target="minutes"><%= @appointment_queue_duration %></h2>
       </div>
+
+      <div class="hospital">
+        <p>Hospital:</p>
+        <h2><%= @appointment.hospital.name %></h2>
+      </div>
+
+      <div class="address">
+        <p>Endereço:</p>
+        <h2><%= @appointment.hospital.address %></h2>
+      </div>
+
+      <div class="route-duration">
+        <p>Tempo estimado de trajeto:</p>
+        <h2 data-map-target="routeDuration"></h2>
+      </div>
+
     </div>
     <div class="map-container">
       <div style="width: 100%; height: 600px;"
-           data-controller="map"
-           data-map-markers-value="<%= @markers.to_json %>"
-           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+           data-map-target="map">
       </div>
     </div>
 
