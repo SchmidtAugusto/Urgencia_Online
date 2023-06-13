@@ -1,0 +1,73 @@
+#hospital-show {
+  padding-bottom: 4rem;
+  min-height: calc(100vh - 70px);
+  margin: 0 auto;
+
+  .hospital-details {
+    margin-bottom: 4rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .hospital-bg{
+    position: absolute;
+    z-index: -10;
+    height: 100%;
+    opacity: 0.2;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .hospital-photo {
+    max-width: 100%;
+    height: auto;
+    background-image: image-url("BIO.mp4");
+    background-position: center;
+    max-width: 100%;
+  }
+
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    color: #3e3e3e;
+    font-size: 80px;
+    font-weight: 400;
+    letter-spacing: -.06em
+  }
+
+  p {
+    font-family: "Arial", sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #3e3e3e;
+    font-weight: 400;
+    letter-spacing: -.06em
+
+  }
+
+  .time-position {
+    font-family: "Arial", sans-serif;
+    font-size: 22px;
+    color: #3e3e3e;
+    font-weight: 400;
+    letter-spacing: -.06em
+
+  }
+
+  li {
+    font-family: "Arial", sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #3e3e3e;
+    font-weight: 400;
+    letter-spacing: -.06em
+  }
+
+  .display-detail {
+  align-items: center;
+  }
+
+}
