@@ -1,7 +1,20 @@
-Historico do usuario
-
-<% @appointments.each do |appointment| %>
-<p><%= appointment.hospital.name %></p>
-<p><%= appointment.description %></p>
-<p><%= appointment.done ? "|x|" : "| |" %></p>
-<% end %>
+<h2 class="text-center p-3">Histórico do usuário</h2>
+<div class="container-historic">
+  <table class="table w-75 mx-auto">
+      <% @appointments.each do |appointment| %>
+        <thead>
+          <tr>
+            <th scope="col"><p><%= appointment.hospital.name %></p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><p><%= appointment.description %></p></td>
+          </tr>
+          <tr>
+            <td><p><%= appointment.done ? "|x|" : "| |" %></p></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+</div>
