@@ -5,11 +5,17 @@
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
   </div>
   <div class="two_column right">
-    <p>Nome: <%= @user.first_name %></p>
-    <p>Sobrenome: <%= @user.last_name %></p>
-    <p>E-mail: <%= @user.email %></p>
-    <p>Cpf: <%= @user.cpf %></p>
-    <p>Nascimento: <%= @user.birthdate.strftime("%d/%m/%Y") %></p>
-    <p>Endereço: <%= @user.address %></p>
+    <%= simple_form_for [@user] do |f| %>
+      <%= f.input :first_name, as: :string, input_html: { readonly: true, value: current_user.first_name }, label: 'Nome:' %>
+      <%= f.input :last_name, as: :string, input_html: { readonly: true, value: current_user.last_name }, label: 'Sobrenome:' %>
+      <%= f.input :email, as: :string, input_html: { value: @user.email }, label: 'Email:' %>
+      <%= f.input :cpf, as: :integer, input_html: { value: @user.cpf }, label: "Cpf:" %>
+      <%= f.input :birthdate, as: :date, label: 'Data de nascimento:' %>
+      <%= f.input :address, as: :string, input_html: { value: @user.address }, label: "Endereço:" %>
+      <div class="d-flex gap-3">
+        <%= f.button :submit, "Editar", class: "btn btn-primary w-100 text-center"%>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center"%>
+      </div>
+    <% end %>
 	</div>
 </div>

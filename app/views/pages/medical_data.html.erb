@@ -6,17 +6,27 @@
   </div>
   <div class="two_column right">
     <% if @medical_data.nil? %>
-      <p>Tipo sanguineo: </p>
-      <p>Alergias: </p>
-      <p>Peso: </p>
-      <p>Altura: </p>
-      <p>Condições especiais: </p>
+      <%= simple_form_for [@medical_record] do |f| %>
+        <%= f.input :blood_type, as: :string, label: 'Tipo sanguineo:' %>
+        <%= f.input :allergies, as: :string, label: 'Alergias:' %>
+        <%= f.input :weight, as: :integer, label: "Peso (Kg):" %>
+        <%= f.input :height, as: :integer, label: "Altura (metros):" %>
+        <%= f.input :health_conditions, as: :string, label: "Condições:" %>
+        <div class="d-flex gap-3">
+          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
+        </div>
+      <% end %>
     <% else %>
-      <p>Tipo sanguineo: <%= @medical_data.blood_type %></p>
-      <p>Alergias: <%= @medical_data.allergies %></p>
-      <p>Peso: <%= @medical_data.weight %></p>
-      <p>Altura: <%= @medical_data.height %></p>
-      <p>Condições especiais: <%= @medical_data.health_conditions %></p>
+      <%= simple_form_for [@medical_data] do |f| %>
+        <%= f.input :blood_type, as: :string, input_html: { readonly: true, value: @medical_data.blood_type }, label: 'Tipo sanguineo:' %>
+        <%= f.input :allergies, as: :string, input_html: { readonly: true, value: @medical_data.allergies }, label: 'Alergias:' %>
+        <%= f.input :weight, as: :integer, input_html: { value: @medical_data.weight }, label: "Peso (Kg):" %>
+        <%= f.input :height, as: :integer, input_html: { value: @medical_data.height }, label: "Altura (metros):" %>
+        <%= f.input :health_conditions, as: :string, input_html: { readonly: true, value: @medical_data.health_conditions }, label: "Condições:" %>
+        <div class="d-flex gap-3">
+          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
+        </div>
+      <% end %>
     <% end %>
 	</div>
 </div>

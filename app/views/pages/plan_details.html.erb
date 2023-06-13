@@ -6,17 +6,27 @@
   </div>
   <div class="two_column right">
     <% if @plan_detail.nil? %>
-      <p>Nome do plano: </p>
-      <p>Produto: </p>
-      <p>id_code: </p>
-      <p>Plano: </p>
-      <p>CNS: </p>
+      <%= simple_form_for [@plan_detail_new] do |f| %>
+        <%= f.input :insurance_plan_id, collection: @insurance_plans, label: 'Nome do plano:', value_method: :id %>
+        <%= f.input :product, as: :string, label: 'Produto:' %>
+        <%= f.input :id_code, as: :integer, label: "Código do produto:" %>
+        <%= f.input :plan, as: :string, label: "Plano:" %>
+        <%= f.input :cns, as: :string, label: "CNS:" %>
+        <div class="d-flex gap-3">
+          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
+        </div>
+      <% end %>
     <% else %>
-      <p>Nome do plano: <%= @plan_detail.insurance_plans.name %></p>
-      <p>Produto: <%= @plan_detail.product %></p>
-      <p>id_code: <%= @plan_detail.id_code %></p>
-      <p>Plano: <%= @plan_detail.plan %></p>
-      <p>CNS: <%= @plan_detail.cns %></p>
+      <%= simple_form_for [@plan_detail] do |f| %>
+        <%= f.input :insurance_plan_id, collection: @insurance_plans, input_html: { value: @plan_detail.insurance_plan_id }, label: 'Nome do plano:', value_method: :id %>
+        <%= f.input :product, as: :string, input_html: { value: @plan_detail.product }, label: 'Produto:' %>
+        <%= f.input :id_code, as: :integer, input_html: { value: @plan_detail.id_code }, label: "Código do produto:" %>
+        <%= f.input :plan, as: :string, input_html: { value: @plan_detail.plan }, label: "Plano:" %>
+        <%= f.input :cns, as: :string, input_html: { value: @plan_detail.cns }, label: "CNS:" %>
+        <div class="d-flex gap-3">
+          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
+        </div>
+      <% end %>
     <% end %>
 	</div>
 </div>
