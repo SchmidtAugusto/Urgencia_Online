@@ -7,4 +7,8 @@ class Hospital < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :name, :address, presence: true
+
+  def total_waiting_time
+    self.appointments.where(done: false).count * 20
+  end
 end
