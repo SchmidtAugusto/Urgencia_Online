@@ -1,5 +1,7 @@
 Historico do usuario
 
 <% @appointments.each do |appointment| %>
+<p><%= appointment.hospital.name %></p>
 <p><%= appointment.description %></p>
+<p><%= appointment.done ? "|x|" : "| |" %></p>
 <% end %>

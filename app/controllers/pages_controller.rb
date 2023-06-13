@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
   def help
   end
-  
+
   def plan_details
     @plan_detail = PlanDetail.find_by(user_id: @user)
   end
@@ -30,5 +30,9 @@ class PagesController < ApplicationController
 
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :cpf, :birthdate, :address, :photo)
   end
 end
