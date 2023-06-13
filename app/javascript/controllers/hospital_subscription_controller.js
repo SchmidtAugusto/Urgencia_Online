@@ -8,18 +8,27 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "HospitalChannel", id: this.hospitalIdValue },
-      { received: (position) => {
-        console.log(position);
-        if (position > parseInt(this.positionTarget.innerHTML)) return
+      { received: (props) => {
+        if (this.positionTarget.innerHTML != "coco de louro") {
+          if (props.position > parseInt(this.positionTarget.innerHTML)) return
 
-        const previousPosition = this.positionTarget.innerHTML
-        this.positionTarget.innerHTML = parseInt(previousPosition) - 1
-
-        const timeString = this.#createTimeString(position)
-        this.minutesTarget.innerHTML = timeString
-      } }
+          const previousPosition = this.positionTarget.innerHTML
+          const currentPosition = parseInt(previousPosition) - 1
+          this.#printPosition(currentPosition)
+        } else {
+          this.minutesTarget.innerHTML = this.#createTimeString(props.totalWaitingTime / 20)
+        }
+      }
+    }
     )
     console.log(`Subscribed to the chatroom with the id ${this.hospitalIdValue}.`)
+  }
+
+  #printPosition(position) {
+    const timeString = this.#createTimeString(position)
+    this.positionTarget.innerHTML = position
+    this.minutesTarget.innerHTML = timeString
+    console.log(position);
   }
 
   #createTimeString(position) {

@@ -31,6 +31,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       redirect_to appointment_path(@appointment)
+      broadcast
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,15 +45,21 @@ class AppointmentsController < ApplicationController
     @appointment.save
     reorder_queue!(@appointment)
 
-    HospitalChannel.broadcast_to(
-      @appointment.hospital,
-      @appointment.position
-    )
+    broadcast
 
     redirect_to root_path
   end
 
   private
+
+  def broadcast
+    HospitalChannel.broadcast_to(
+      @appointment.hospital,
+      { position: @appointment.position,
+        totalWaitingTime: @appointment.hospital.total_waiting_time,
+      }
+    )
+  end
 
   def reorder_queue!(appointment)
     hospital = appointment.hospital
