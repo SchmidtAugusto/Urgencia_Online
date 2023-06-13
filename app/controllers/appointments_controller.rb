@@ -2,10 +2,11 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show destroy done]
 
   def index
-    @appointments = Appointment.where(user_id: current_user)
+    @appointments = policy_scope(Appointment)
   end
 
   def show
+    authorize @appointment
     @appointment_queue_duration = queue_duration_calc(@appointment.position)
     @hospital = Hospital.find(@appointment.hospital_id)
     @hospitals = Hospital.all
@@ -19,6 +20,7 @@ class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
     @hospital = Hospital.find(params[:hospital_id])
+    authorize @appointment
   end
 
   def create
@@ -26,8 +28,8 @@ class AppointmentsController < ApplicationController
     @hospital = Hospital.find(params[:hospital_id])
     @appointment.user = current_user
     @appointment.hospital = @hospital
-    @appointment.position = Appointment.where(hospital_id: @hospital, done: false, color_protocol: @appointment.color_protocol)
-                                       .count + 1
+    @appointment.position = Appointment.where(hospital_id: @hospital, done: false, color_protocol: @appointment.color_protocol).count + 1
+    authorize @appointment
 
     if @appointment.save
       redirect_to appointment_path(@appointment)
@@ -38,12 +40,14 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    authorize @appointment
   end
 
   def done
     @appointment.done = true
     @appointment.save
     reorder_queue!(@appointment)
+    authorize @appointment
 
     broadcast
 
