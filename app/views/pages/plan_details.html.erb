@@ -4,30 +4,30 @@
     <a data-panel="[]" class="nav_item active" href="http://localhost:3000/plan_details">Detalhes do plano</a>
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
   </div>
-  <div class="two_column right" data-controller="account-details">
+  <div class="two_column right" data-controller="plan-details">
     <% if @plan_detail.nil? %>
       <%= simple_form_for [@plan_detail_new] do |f| %>
-        <%= f.input :insurance_plan_id, collection: @insurance_plans, label: 'Nome do plano:', value_method: :id %>
-        <%= f.input :product, as: :string, label: 'Produto:' %>
-        <%= f.input :id_code, as: :integer, label: "Código do produto:" %>
-        <%= f.input :plan, as: :string, label: "Plano:" %>
-        <%= f.input :cns, as: :string, label: "CNS:" %>
+        <%= f.input :insurance_plan_id, collection: @insurance_plans, input_html: { disabled: true, value: " ", class: 'account-input' }, label: 'Nome do plano:', value_method: :id %>
+        <%= f.input :product, as: :string, input_html: { disabled: true,value: " ", class: 'account-input' }, label: 'Produto:' %>
+        <%= f.input :id_code, as: :integer, input_html: { disabled: true,value: " ", class: 'account-input' }, label: "Código do produto:" %>
+        <%= f.input :plan, as: :string, input_html: { disabled: true,value: " ", class: 'account-input' }, label: "Plano:" %>
+        <%= f.input :cns, as: :string, input_html: { disabled: true,value: " ", class: 'account-input' }, label: "CNS:" %>
         <div class="d-flex gap-3">
         <button id="edit-button" class="btn btn-primary w-100 text-center"
-        data-action="click->account-details#edit"> Editar </button>
+        data-action="click->plan-details#edit"> Editar </button>
         <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
       </div>
       <% end %>
     <% else %>
       <%= simple_form_for [@plan_detail] do |f| %>
-        <%= f.input :insurance_plan_id, collection: @insurance_plans, input_html: { value: @plan_detail.insurance_plan_id }, label: 'Nome do plano:', value_method: :id %>
-        <%= f.input :product, as: :string, input_html: { value: @plan_detail.product }, label: 'Produto:' %>
-        <%= f.input :id_code, as: :integer, input_html: { value: @plan_detail.id_code }, label: "Código do produto:" %>
-        <%= f.input :plan, as: :string, input_html: { value: @plan_detail.plan }, label: "Plano:" %>
-        <%= f.input :cns, as: :string, input_html: { value: @plan_detail.cns }, label: "CNS:" %>
+        <%= f.input :insurance_plan_id, collection: @insurance_plans, input_html: { disabled: true,value: @plan_detail.insurance_plan_id, class: 'account-input' }, label: 'Nome do plano:', value_method: :id %>
+        <%= f.input :product, as: :string, input_html: { disabled: true,value: @plan_detail.product, class: 'account-input' }, label: 'Produto:' %>
+        <%= f.input :id_code, as: :integer, input_html: { disabled: true,value: @plan_detail.id_code, class: 'account-input' }, label: "Código do produto:" %>
+        <%= f.input :plan, as: :string, input_html: { disabled: true,value: @plan_detail.plan, class: 'account-input' }, label: "Plano:" %>
+        <%= f.input :cns, as: :string, input_html: { disabled: true,value: @plan_detail.cns, class: 'account-input' }, label: "CNS:" %>
         <div class="d-flex gap-3">
         <button id="edit-button" class="btn btn-primary w-100 text-center"
-        data-action="click->account-details#edit"> Editar </button>
+        data-action="click->plan-details#edit"> Editar </button>
         <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
       </div>
       <% end %>

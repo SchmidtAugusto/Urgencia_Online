@@ -15,3 +15,9 @@ application.register("hospital-subscription", HospitalSubscriptionController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import MedicalRecordsController from "./medical_records_controller"
+application.register("medical-records", MedicalRecordsController)
+
+import PlanDetailsController from "./plan_details_controller"
+application.register("plan-details", PlanDetailsController)

@@ -4,15 +4,18 @@
       <% @appointments.each do |appointment| %>
         <thead>
           <tr>
-            <th scope="col"><p><%= appointment.hospital.name %></p></th>
+            <th rowspan="2" class="wht_date">Data</th>
+            <th rowspan="2" class="wht_items">Detalhes</th>
+            <th rowspan="2" class="wht_type">Hospital</th>
+            <th rowspan="2" class="wht_total">Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><p><%= appointment.description %></p></td>
-          </tr>
-          <tr>
-            <td><p><%= appointment.done ? "|x|" : "| |" %></p></td>
+            <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= appointment.description %></td>
+            <td><%= appointment.hospital.name %></td>
+            <td><%= appointment.done ? "Concluído" : "Em andamento" %></td>
           </tr>
         </tbody>
       <% end %>
