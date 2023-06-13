@@ -4,7 +4,7 @@
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/plan_details">Detalhes do plano</a>
     <a data-panel="[]" class="nav_item active" href="http://localhost:3000/medical_data">Informações medicas</a>
   </div>
-  <div class="two_column right">
+  <div class="two_column right" data-controller="account-details">
     <% if @medical_data.nil? %>
       <%= simple_form_for [@medical_record] do |f| %>
         <%= f.input :blood_type, as: :string, label: 'Tipo sanguineo:' %>
@@ -13,8 +13,10 @@
         <%= f.input :height, as: :integer, label: "Altura (metros):" %>
         <%= f.input :health_conditions, as: :string, label: "Condições:" %>
         <div class="d-flex gap-3">
-          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
-        </div>
+        <button id="edit-button" class="btn btn-primary w-100 text-center"
+        data-action="click->account-details#edit"> Editar </button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
+      </div>
       <% end %>
     <% else %>
       <%= simple_form_for [@medical_data] do |f| %>
@@ -24,8 +26,10 @@
         <%= f.input :height, as: :integer, input_html: { value: @medical_data.height }, label: "Altura (metros):" %>
         <%= f.input :health_conditions, as: :string, input_html: { readonly: true, value: @medical_data.health_conditions }, label: "Condições:" %>
         <div class="d-flex gap-3">
-          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
-        </div>
+        <button id="edit-button" class="btn btn-primary w-100 text-center"
+        data-action="click->account-details#edit"> Editar </button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
+      </div>
       <% end %>
     <% end %>
 	</div>
