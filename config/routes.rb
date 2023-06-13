@@ -14,9 +14,13 @@ Rails.application.routes.draw do
 
   resources :appointments, only: %i[index show]
 
-  get :account_details, to: "pages#account_details"
+  resources :users, only: %i[edit update]
+  resources :medical_records, only: %i[create update]
+  resources :plan_details, only: %i[create update]
+
   get :help, to: "pages#help"
 
+  get :account_details, to: "pages#account_details"
   get :plan_details, to: "pages#plan_details"
   get :medical_data, to: "pages#medical_data"
 end

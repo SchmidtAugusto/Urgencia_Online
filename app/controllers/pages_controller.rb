@@ -20,10 +20,13 @@ class PagesController < ApplicationController
 
   def plan_details
     @plan_detail = PlanDetail.find_by(user_id: @user)
+    @plan_detail_new = PlanDetail.new(user_id: @user)
+    @insurance_plans = InsurancePlan.all
   end
 
   def medical_data
     @medical_data = MedicalRecord.find_by(user_id: @user)
+    @medical_record = MedicalRecord.new(user_id: @user)
   end
 
   private
@@ -34,5 +37,9 @@ class PagesController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :cpf, :birthdate, :address, :photo)
+  end
+
+  def medical_data_params
+    params.require(:medical_data).permit(:user_id, :blood_type, :allergies, :weight, :height, :health_conditions)
   end
 end
