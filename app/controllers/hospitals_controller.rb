@@ -1,7 +1,9 @@
 class HospitalsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_hospital, only: %i[show]
 
   def show
+    @coverages = Coverage.where(hospital_id: @hospital)
   end
 
   private
