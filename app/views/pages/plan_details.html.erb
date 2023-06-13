@@ -4,7 +4,7 @@
     <a data-panel="[]" class="nav_item active" href="http://localhost:3000/plan_details">Detalhes do plano</a>
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
   </div>
-  <div class="two_column right">
+  <div class="two_column right" data-controller="account-details">
     <% if @plan_detail.nil? %>
       <%= simple_form_for [@plan_detail_new] do |f| %>
         <%= f.input :insurance_plan_id, collection: @insurance_plans, label: 'Nome do plano:', value_method: :id %>
@@ -13,8 +13,10 @@
         <%= f.input :plan, as: :string, label: "Plano:" %>
         <%= f.input :cns, as: :string, label: "CNS:" %>
         <div class="d-flex gap-3">
-          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
-        </div>
+        <button id="edit-button" class="btn btn-primary w-100 text-center"
+        data-action="click->account-details#edit"> Editar </button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
+      </div>
       <% end %>
     <% else %>
       <%= simple_form_for [@plan_detail] do |f| %>
@@ -24,8 +26,10 @@
         <%= f.input :plan, as: :string, input_html: { value: @plan_detail.plan }, label: "Plano:" %>
         <%= f.input :cns, as: :string, input_html: { value: @plan_detail.cns }, label: "CNS:" %>
         <div class="d-flex gap-3">
-          <%= f.button :submit, "Edit", class: "btn btn-primary w-100 text-center"%>
-        </div>
+        <button id="edit-button" class="btn btn-primary w-100 text-center"
+        data-action="click->account-details#edit"> Editar </button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
+      </div>
       <% end %>
     <% end %>
 	</div>

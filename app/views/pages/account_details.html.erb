@@ -4,17 +4,18 @@
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/plan_details">Detalhes do plano</a>
     <a data-panel="[]" class="nav_item " href="http://localhost:3000/medical_data">Informações medicas</a>
   </div>
-  <div class="two_column right">
+  <div class="two_column right" data-controller="account-details">
     <%= simple_form_for [@user] do |f| %>
-      <%= f.input :first_name, as: :string, input_html: { readonly: true, value: current_user.first_name }, label: 'Nome:' %>
-      <%= f.input :last_name, as: :string, input_html: { readonly: true, value: current_user.last_name }, label: 'Sobrenome:' %>
-      <%= f.input :email, as: :string, input_html: { value: @user.email }, label: 'Email:' %>
-      <%= f.input :cpf, as: :integer, input_html: { value: @user.cpf }, label: "Cpf:" %>
-      <%= f.input :birthdate, as: :date, label: 'Data de nascimento:' %>
-      <%= f.input :address, as: :string, input_html: { value: @user.address }, label: "Endereço:" %>
+      <%= f.input :first_name, as: :string, input_html: { disabled: true, value: current_user.first_name, class: 'account-input' }, label: 'Nome:' %>
+      <%= f.input :last_name, as: :string, input_html: { disabled: true, value: current_user.last_name, class: 'account-input' }, label: 'Sobrenome:' %>
+      <%= f.input :email, as: :string, input_html: { disabled: true, value: @user.email, class: 'account-input' }, label: 'Email:' %>
+      <%= f.input :cpf, as: :integer, input_html: { disabled: true, value: @user.cpf, class: 'account-input' }, label: "Cpf:" %>
+      <%= f.input :birthdate, as: :date, input_html: { disabled: true, value: @user.birthdate, class: 'account-input' }, label: 'Data de nascimento:' %>
+      <%= f.input :address, as: :string, input_html: { disabled: true, value: @user.address, class: 'account-input' }, label: "Endereço:" %>
       <div class="d-flex gap-3">
-        <%= f.button :submit, "Editar", class: "btn btn-primary w-100 text-center"%>
-        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center"%>
+        <button id="edit-button" class="btn btn-primary w-100 text-center"
+        data-action="click->account-details#edit"> Editar </button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary w-100 text-center d-none", id: "save-button" %>
       </div>
     <% end %>
 	</div>
