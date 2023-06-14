@@ -1,6 +1,7 @@
 <div class="background-photo">
   <div class="appointment-new">
-   <%# <%= image_tag "Pain.jpg" %>
+   <%# <%= image_tag "Hospital-Show.jpg" %>
+    <h1>Triagem</h1>
     <%= simple_form_for [@hospital, @appointment] do |f| %>
       <%= f.input :user_name, as: :string, input_html: { readonly: true, value: "#{current_user.first_name} #{current_user.last_name}" }, label: 'Seu nome' %>
       <%= f.input :hospital_name, as: :string, input_html: { readonly: true, value: @hospital.name }, label: 'Nome do hospital' %>
