@@ -29,6 +29,10 @@ class PagesController < ApplicationController
     @medical_record = MedicalRecord.new(user_id: @user)
   end
 
+  def admin
+    @appointments = Appointment.where(done: false)
+  end
+
   private
 
   def set_user

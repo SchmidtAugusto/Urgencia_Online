@@ -12,13 +12,15 @@ Rails.application.routes.draw do
 
   patch "appointments/:id", to: "appointments#done", as: "appointment_done"
 
-  resources :appointments, only: %i[index show]
+  resources :appointments, only: %i[index show update]
 
   resources :users, only: %i[edit update]
   resources :medical_records, only: %i[create update]
   resources :plan_details, only: %i[create update]
 
   get :help, to: "pages#help"
+
+  get :admin, to: "pages#admin"
 
   get :account_details, to: "pages#account_details"
   get :plan_details, to: "pages#plan_details"

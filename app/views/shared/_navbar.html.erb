@@ -16,9 +16,11 @@
               <%= link_to "Início", root_path, class: "nav-link" %>
             </li>
           <% end %>
+          <% unless current_user.admin %>
             <li class="nav-item">
               <%= link_to "Ajuda", help_path, class: "nav-link" %>
             </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to current_user.first_name, "#", class: "nav-link" %>
           </li>
@@ -31,9 +33,14 @@
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Detalhes da conta", account_details_path, class: "dropdown-item" %>
-              <%= link_to "Histórico", appointments_path, class: "dropdown-item" %>
-              <%= link_to "Sair da conta", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <% if current_user.admin %>
+                <%= link_to "Controle da fila", admin_path, class: "dropdown-item" %>
+                <%= link_to "Sair da conta", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "Detalhes da conta", account_details_path, class: "dropdown-item" %>
+                <%= link_to "Histórico", appointments_path, class: "dropdown-item" %>
+                <%= link_to "Sair da conta", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <% end %>
             </div>
           </li>
         <% else %>
