@@ -18,7 +18,7 @@
             <p><%= hospital.address %></p>
 
           </div>
-          <p data-hospital-subscription-target="minutes" class="time-position"><%= hospital.total_waiting_time %> minutos</p>
+          <p data-hospital-subscription-target="minutes" class="time-position">Tempo estimado: <%= hospital.total_waiting_time %> minutos</p>
           <%= link_to "Entrar na fila", new_hospital_appointment_path(hospital), class: "btn btn-primary w-100" %>
         </div>
       </div>

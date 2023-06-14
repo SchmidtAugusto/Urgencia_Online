@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   def plan_details
     @plan_detail = PlanDetail.find_by(user_id: @user)
     @plan_detail_new = PlanDetail.new(user_id: @user)
-    @insurance_plans = InsurancePlan.all
+    @insurance_plans = InsurancePlan.all.order(:name)
   end
 
   def medical_data
