@@ -1,8 +1,8 @@
 <div id="homepage" class="d-grid">
   <div class="banner">
-    <%= video_tag "UrgBackOFFICIAL", autoplay: true, loop: true, muted: true %>
+    <%= video_tag "UrgBackOFFICIAL.mp4", autoplay: true, loop: true, muted: true %>
     <div class="container text-center">
-      <%= image_tag "uo_logo"%>
+      <%= image_tag "uo_logo.png"%>
       <h1 class="text-center logo">Urgência Online</h1>
       <p class="text-center logo">Procure por um hospital específico</p>
       <%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
@@ -21,7 +21,7 @@
     <h2 class="text-center">Selecione um hospital</h2>
     <div class="cards-wrapper">
       <% @hospitals.each do |hospital| %>
-        <div class="hospital-card d-flex justify-content-between">
+        <div class="hospital-card d-flex justify-content-between ">
           <%= cl_image_tag hospital.photo.key %>
           <div class="right-content"
                data-controller="hospital-subscription"

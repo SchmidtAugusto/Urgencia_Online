@@ -3,19 +3,22 @@
       <thead>
         <tr >
           <th rowspan="2" class="wht_date">Data</th>
-          <th rowspan="2" class="wht_items">Detalhes</th>
           <th rowspan="2" class="wht_type">Hospital</th>
           <th rowspan="2" class="wht_total">Status</th>
         </tr>
       </thead>
       <% @appointments.each do |appointment| %>
         <tbody>
-          <tr>
-            <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
-            <td><%= appointment.description %></td>
-            <td><%= appointment.hospital.name %></td>
-            <td><%= appointment.done ? "Concluído" : "Em andamento" %></td>
-          </tr>
+            <tr>
+              <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
+              <td><%= appointment.hospital.name %></td>
+              <% if appointment.done %>
+                <td>Concluído</td>
+              <% else %>
+                <td><%= link_to "Em andamento", appointment_path(appointment) %></td>
+              <% end %>
+            </tr>
+          </a>
         </tbody>
       <% end %>
     </table>

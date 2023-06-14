@@ -16,11 +16,11 @@ require "faker"
 
 puts "Destroying all previous instances..."
 
+MedicalRecord.destroy_all
 Appointment.destroy_all
 Coverage.destroy_all
-InsurancePlan.destroy_all
 PlanDetail.destroy_all
-MedicalRecord.destroy_all
+InsurancePlan.destroy_all
 User.destroy_all
 Hospital.destroy_all
 
