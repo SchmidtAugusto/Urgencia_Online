@@ -1,10 +1,26 @@
 .appointment-new {
-  width: 1200px;
+  width: 600px;
   margin: 0 auto;
   flex: 3;
-  background-color: $body-color-custom;
+  background-color: #ffffffe6;
   padding: 100px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-family: "Arial", sans-serif;
+}
+
+.background-photo {
+  background-image: url("Pain3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#appointment_description {
+  padding: 0.5rem;
+  height: 6rem;
+  display: flex;
+  align-items: start;
+  text-align: left;
 }
