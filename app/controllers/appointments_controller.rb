@@ -51,7 +51,7 @@ class AppointmentsController < ApplicationController
 
     broadcast
 
-    redirect_to root_path
+    redirect_to admin_path
   end
 
   private

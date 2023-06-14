@@ -5,6 +5,6 @@ class AddColumnsToUser < ActiveRecord::Migration[7.0]
     add_column :users, :cpf, :integer
     add_column :users, :birthdate, :date
     add_column :users, :address, :string
-    add_column :users, :admin, :boolean, default: false
+    add_column :users, :admin, :boolean, null: false, default: false
   end
 end

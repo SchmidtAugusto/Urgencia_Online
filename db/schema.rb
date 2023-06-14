@@ -117,7 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_194316) do
     t.bigint "cpf"
     t.date "birthdate"
     t.string "address"
-    t.boolean "admin", default: false
+    t.boolean "admin", default: false, null: false
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
