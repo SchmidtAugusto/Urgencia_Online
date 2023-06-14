@@ -1,29 +1,29 @@
 // Graphical variables
-// @import "config/fonts";
-// @import "config/colors";
-// @import "config/bootstrap_variables";
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
 
-// // External libraries
-// // @import "bootstrap/scss/bootstrap";
-// // @import "font-awesome";
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
 
-// // // Your CSS partials
-// // @import "components/index";
-// // @import "pages/index";
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
 
-// body {
-//   color: $dark-gray;
-// }
+body {
+  color: $dark-gray;
+}
 
-// .form-control {
-//   color: $dark-gray!important;
-// }
+.form-control {
+  color: $dark-gray!important;
+}
 
-// .d-hidden {
-//   display: none!important;
-// }
+.d-hidden {
+  display: none!important;
+}
 
-// .main-container {
-//   min-height: 70vh;
-//   margin-top: 70px;
-// }
+.main-container {
+  min-height: 70vh;
+  margin-top: 70px;
+}

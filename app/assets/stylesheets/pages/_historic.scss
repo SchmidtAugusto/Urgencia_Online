@@ -1,8 +1,10 @@
-.container-consulta {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
+#historic{
+  .consulta {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
 
+  }
   hr {
     border-top: 1px solid #ccc;
     margin-top: 10px;
@@ -11,5 +13,14 @@
 
   p {
     margin: 5px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3e3e3e;
+  }
+
+  a:hover{
+    color: #00B2BD;
   }
 }

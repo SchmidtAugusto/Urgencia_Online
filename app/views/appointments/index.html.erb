@@ -1,5 +1,5 @@
 <h2 class="text-center p-3">Histórico do usuário</h2>
-<div class="container-historic">
+<div class="container" id="historic">
   <table class="table w-75 mx-auto">
       <thead>
         <tr>
@@ -15,7 +15,11 @@
               <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
               <td><%= appointment.description %></td>
               <td><%= appointment.hospital.name %></td>
-              <td><%= appointment.done ? "Concluído" : "Em andamento" %></td>
+              <% if appointment.done %>
+                <td>Concluído</td>
+              <% else %>
+                <td><%= link_to "Em andamento", appointment_path(appointment) %></td>
+              <% end %>
             </tr>
           </a>
         </tbody>
