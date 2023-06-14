@@ -16,9 +16,11 @@
               <h3><%= hospital.name %></h3>
             <% end %>
             <p><%= hospital.address %></p>
-
           </div>
-          <p data-hospital-subscription-target="minutes" class="time-position"><%= hospital.total_waiting_time %> minutos</p>
+            <div>
+              <p class="time-position first-text">Tempo estimado de espera:</p>
+              <p data-hospital-subscription-target="minutes" class="time-position"><%= hospital.total_waiting_time %> minutos</p>
+            </div>
           <%= link_to "Entrar na fila", new_hospital_appointment_path(hospital), class: "btn btn-primary w-100" %>
         </div>
       </div>

@@ -3,6 +3,9 @@
   height: 260px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  a {
+    text-decoration: none!important;
+  }
 
   img {
     width: 30%;
@@ -25,8 +28,15 @@
     flex-grow: 1;
   }
 
+  .first-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #7b7b7b;
+  }
+
   .time-position{
-    padding: 1rem 1rem 0 1rem;
+    padding-left: 1rem;
+    margin-bottom: 0;
   }
 
   .btn{
