@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :help]
-  before_action :set_user, only: %i[account_details plan_details medical_data]
+  before_action :set_user, only: %i[account_details plan_details medical_data admin]
 
   def home
     @hospitals = Hospital.all
@@ -35,7 +35,12 @@ class PagesController < ApplicationController
   end
 
   def admin
-    @appointments = Appointment.where(done: false)
+    if @user.admin
+      authorize @user
+      @appointments = Appointment.where(done: false)
+    else
+      redirect_to root_path
+    end
   end
 
   private

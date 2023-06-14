@@ -44,13 +44,12 @@ class AppointmentsController < ApplicationController
   end
 
   def done
-    @appointment.done = true
-    @appointment.save
     reorder_queue!(@appointment)
     authorize @appointment
+    @appointment.done = true
+    @appointment.save
 
     broadcast
-
     redirect_to admin_path
   end
 

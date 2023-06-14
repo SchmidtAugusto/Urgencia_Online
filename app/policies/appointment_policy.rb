@@ -14,15 +14,19 @@ class AppointmentPolicy < ApplicationPolicy
     true
   end
 
-  def create?
-    true
-  end
-
   def new?
     create?
   end
 
-  def done?
+  def create?
     true
+  end
+
+  def done?
+    if user.admin
+      true
+    else
+      false
+    end
   end
 end
