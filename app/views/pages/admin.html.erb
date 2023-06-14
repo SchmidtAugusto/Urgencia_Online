@@ -1,13 +1,17 @@
-<% @appointments.each do |appointment| %>
-  <div class="container">
-    <div class="card m-3">
-      <%= simple_form_for [appointment] do |f| %>
-        <%= f.input :name, as: :string, input_html: { disabled: true, value: "#{appointment.user.first_name} #{appointment.user.last_name}" }, label: "Nome:" %>
-        <%= f.input :hospital, as: :string, input_html: { disabled: true, value: appointment.hospital.name }, label: "Hospital:" %>
-        <div class="d-flex gap-3">
-          <%= f.button :submit, "Finalizar atendimento", class: "btn btn-primary w-100 text-center"%>
+<div class="container">
+  <div class="row pt-4">
+    <% @appointments.each do |appointment| %>
+      <div class="card col-2 m-1">
+        <div class="p-2">
+          <%= simple_form_for [appointment] do |f| %>
+            <%= f.input :name, as: :string, input_html: { disabled: true, value: "#{appointment.user.first_name} #{appointment.user.last_name}" }, label: "Nome:" %>
+            <%= f.input :hospital, as: :string, input_html: { disabled: true, value: appointment.hospital.name }, label: "Hospital:" %>
+            <div class="d-flex gap-3">
+              <%= f.button :submit, "Finalizar atend.", class: "btn btn-primary w-100 text-center"%>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

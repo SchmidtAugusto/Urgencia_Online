@@ -97,10 +97,12 @@ puts "Users created!"
 
 puts "Creating insurance plans..."
 
-5.times do
-  InsurancePlan.create!(
-    name: Faker::Company.name
-  )
+plans = ["Amil", "Notre Dame Intermédia", "Bradesco Saúde", "Sul América Saúde", "Saúde Beneficência", "Hapvida", "Unimed", "Green Line", "São Cristóvão",
+        "Trasmontano Saúde", "Santa Helena Saúde", "Porto Seguro Saúde", "São Francisco", "Blue Med Saúde", "Golden Cross", "Careplus"]
+
+plans.each do |plan|
+  h = InsurancePlan.create(name: plan)
+  puts h.name
 end
 
 puts "Insurance plans created!"

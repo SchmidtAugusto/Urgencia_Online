@@ -22,7 +22,7 @@
           </li>
         </ul>
 
-        <% position_minutes = position * 20 %>
+        <% position_minutes = @hospital.total_waiting_time %>
         <% if position_minutes >= 60 %>
           <% hours = position_minutes / 60 %>
           <% remaining_minutes = position_minutes % 60 %>
