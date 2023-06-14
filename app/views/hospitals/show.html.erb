@@ -1,21 +1,22 @@
 <div id="hospital-show" class="d-flex align-items-center">
-  <%= video_tag "BIO.mp4", autoplay: true, loop: true, muted: true, class:"hospital-bg"%>
-  <div class="container hospital_details card">
+  <%# <%= video_tag "BIO.mp4", autoplay: true, loop: true, muted: true, class:"hospital-bg"%>
+  <%= image_tag "DNA.jpg", class:"hospital-bg"%>
+  <div class="container hospital_details ">
     <div class="row justify-content-center">
-      <h2><%= @hospital.name %></h2>
       <div class="col-md-4 display-detail d-flex align-items-center hospital-photo">
-        <%= cl_image_tag(@hospital.photo.key, class: "img-fluid") %>
+        <%= cl_image_tag(@hospital.photo.key, class: "img-fluid border border-dark") %>
       </div>
       <div class="col-md-6">
+        <h2><%= @hospital.name %></h2>
         <p><%= @hospital.address %></p>
         <% position = Appointment.where(hospital_id: @hospital).count %>
         <p> Planos aceitos:</p>
         <ul>
-          <% @coverages.each do |coverage| %>
             <li>
+          <% @coverages.each do |coverage| %>
               <%= coverage.insurance_plan.name %>
-            </li>
           <% end %>
+          </li>
         </ul>
 
         <% position_minutes = position * 20 %>
