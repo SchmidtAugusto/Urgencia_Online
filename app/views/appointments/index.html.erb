@@ -11,12 +11,13 @@
       </thead>
       <% @appointments.each do |appointment| %>
         <tbody>
-          <tr>
-            <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
-            <td><%= appointment.description %></td>
-            <td><%= appointment.hospital.name %></td>
-            <td><%= appointment.done ? "Concluído" : "Em andamento" %></td>
-          </tr>
+            <tr>
+              <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
+              <td><%= appointment.description %></td>
+              <td><%= appointment.hospital.name %></td>
+              <td><%= appointment.done ? "Concluído" : "Em andamento" %></td>
+            </tr>
+          </a>
         </tbody>
       <% end %>
     </table>
