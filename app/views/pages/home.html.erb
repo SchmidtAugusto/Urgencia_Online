@@ -21,7 +21,7 @@
     <h2 class="text-center">Selecione um hospital</h2>
     <div class="cards-wrapper">
       <% @hospitals.each do |hospital| %>
-        <div class="hospital-card d-flex justify-content-between">
+        <div class="hospital-card d-flex justify-content-between ">
           <%= cl_image_tag hospital.photo.key %>
           <div class="right-content"
                data-controller="hospital-subscription"
