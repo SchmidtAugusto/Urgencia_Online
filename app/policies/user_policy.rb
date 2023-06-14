@@ -9,4 +9,12 @@ class UserPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def admin?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
 end
