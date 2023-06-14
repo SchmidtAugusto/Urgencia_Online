@@ -3,12 +3,17 @@
   min-height: calc(100vh - 70px);
   margin: 0 auto;
 
+  // .card{
+  //   background-color: $body-color-custom;
+  // }
+
   .hospital-details {
     margin-bottom: 4rem;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
+
   .hospital-bg{
     position: absolute;
     z-index: -10;
