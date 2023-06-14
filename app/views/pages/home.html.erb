@@ -1,16 +1,18 @@
-<div id="homepage" class="d-grid">
-  <div class="banner">
+<div id="homepage" class="d-grid" data-controller="homepage-search">
+  <div class="banner"
+       data-homepage-search-target="banner">
     <%= video_tag "UrgBackOFFICIAL.mp4", autoplay: true, loop: true, muted: true %>
     <div class="container text-center">
       <%= image_tag "uo_logo.png"%>
       <h1 class="text-center logo">Urgência Online</h1>
       <p class="text-center logo">Procure por um hospital específico</p>
-      <%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
+      <%= form_with url: root_path, method: :get, class: "d-flex search-bar", data: { homepage_search_target: "form" } do %>
 
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Buscar hospitais"
+              placeholder: "Buscar hospitais",
+              data: { homepage_search_target: "searchbar", action: "keyup->homepage-search#searchHospitals" }
           %>
         <%= submit_tag "Buscar", name: "", class: "btn btn-primary d-hidden" %>
       <% end %>
@@ -19,28 +21,6 @@
 
   <div class="hospitals-index container">
     <h2 class="text-center">Selecione um hospital</h2>
-    <div class="cards-wrapper">
-      <% @hospitals.each do |hospital| %>
-        <div class="hospital-card d-flex justify-content-between">
-          <%= cl_image_tag hospital.photo.key %>
-          <div class="right-content"
-               data-controller="hospital-subscription"
-               data-hospital-subscription-hospital-id-value="<%= hospital.id %>">
-            <div class="d-none"
-                 data-hospital-subscription-target="position">coco de louro</div>
-
-            <div class="hospital-info">
-              <%= link_to hospital_path(hospital) do %>
-                <h3><%= hospital.name %></h3>
-              <% end %>
-              <p><%= hospital.address %></p>
-
-            </div>
-            <p data-hospital-subscription-target="minutes" class="time-position"><%= hospital.total_waiting_time %> minutos</p>
-            <%= link_to "Entrar na fila", new_hospital_appointment_path(hospital), class: "btn btn-primary w-100" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render partial: "hospital_card", locals: { hospitals: @hospitals } %>
   </div>
 </div>

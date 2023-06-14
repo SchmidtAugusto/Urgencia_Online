@@ -10,6 +10,11 @@ class PagesController < ApplicationController
     else
       @hospitals = Hospital.all
     end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "pages/hospital_card", locals: {hospitals: @hospitals}, formats: [:html] }
+    end
   end
 
   def account_details

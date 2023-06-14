@@ -10,6 +10,9 @@ application.register("account-details", AccountDetailsController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HomepageSearchController from "./homepage_search_controller"
+application.register("homepage-search", HomepageSearchController)
+
 import HospitalSubscriptionController from "./hospital_subscription_controller"
 application.register("hospital-subscription", HospitalSubscriptionController)
 
