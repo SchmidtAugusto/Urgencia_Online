@@ -7,21 +7,6 @@ module.exports = {
   entry: {
     application: "./app/javascript/application.js"
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
-          },
-        },
-      },
-    ],
-  },
   output: {
     filename: "[name].js",
     sourceMapFilename: "[file].map",
@@ -33,3 +18,17 @@ module.exports = {
     })
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
