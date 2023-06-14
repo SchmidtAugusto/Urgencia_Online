@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @hospitals = Hospital.all
-
+    @query = params[:query]
     if params[:query].present?
       @hospitals = Hospital.where("name ILIKE ?", "%#{params[:query]}%")
     else
@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "pages/hospital_card", locals: {hospitals: @hospitals}, formats: [:html] }
+      format.text { render partial: "pages/hospital_card", locals: { hospitals: @hospitals, query: @query }, formats: [:html] }
     end
   end
 

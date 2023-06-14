@@ -21,6 +21,6 @@
 
   <div class="hospitals-index container">
     <h2 class="text-center">Selecione um hospital</h2>
-    <%= render partial: "hospital_card", locals: { hospitals: @hospitals } %>
+    <%= render partial: "hospital_card", locals: { hospitals: @hospitals, query: @query } %>
   </div>
 </div>
