@@ -12,6 +12,7 @@
       <%= f.input :cpf, as: :integer, input_html: { disabled: true, value: @user.cpf, class: 'account-input' }, label: "Cpf:" %>
       <%= f.input :birthdate, as: :date, input_html: { disabled: true, value: @user.birthdate, class: 'account-input' }, label: 'Data de nascimento:' %>
       <%= f.input :address, as: :string, input_html: { disabled: true, value: @user.address, class: 'account-input' }, label: "Endereço:" %>
+      <%= f.input :photo, as: :file, input_html: { disabled: true, class: 'account-input' }, label: "Foto perfil:" %>
       <div class="d-flex gap-3">
         <button id="edit-button" class="btn btn-primary w-100 text-center"
         data-action="click->account-details#edit"> Editar </button>

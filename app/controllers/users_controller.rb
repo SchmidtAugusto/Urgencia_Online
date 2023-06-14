@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     authorize @user
 
     if @user.update(user_params)
-      redirect_to account_details_path, notice: 'Produto atualizado com sucesso!'
+      redirect_to account_details_path, notice: 'Dados atualizados com sucesso!'
     else
       render :edit
     end
