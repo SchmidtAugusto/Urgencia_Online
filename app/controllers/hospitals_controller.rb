@@ -4,6 +4,7 @@ class HospitalsController < ApplicationController
 
   def show
     @coverages = Coverage.where(hospital_id: @hospital)
+    authorize @hospital
   end
 
   private

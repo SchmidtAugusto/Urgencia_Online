@@ -4,7 +4,6 @@
       <thead>
         <tr>
           <th rowspan="2" class="wht_date">Data</th>
-          <th rowspan="2" class="wht_items">Detalhes</th>
           <th rowspan="2" class="wht_type">Hospital</th>
           <th rowspan="2" class="wht_total">Status</th>
         </tr>
@@ -13,7 +12,6 @@
         <tbody>
             <tr>
               <td><%= appointment.created_at.strftime("%d/%m/%Y") %></td>
-              <td><%= appointment.description %></td>
               <td><%= appointment.hospital.name %></td>
               <% if appointment.done %>
                 <td>Concluído</td>
