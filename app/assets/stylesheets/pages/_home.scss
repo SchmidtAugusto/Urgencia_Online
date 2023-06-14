@@ -9,6 +9,7 @@
   }
 
   .banner {
+    transition: all 0.3s ease-in-out;
     width: 100vw;
     height: 90vh;
     display: flex;
@@ -42,6 +43,16 @@
       input {
         border-radius: 10px;
       }
+    }
+  }
+
+  .banner.collapse {
+    transition: all 0.3s ease-in-out;
+    background-color: $dark-gray;
+    height: 4rem;
+
+    video, img, h1, p {
+      display: none;
     }
   }
 
