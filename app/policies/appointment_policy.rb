@@ -22,6 +22,10 @@ class AppointmentPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    true
+  end
+
   def done?
     if user.admin
       true

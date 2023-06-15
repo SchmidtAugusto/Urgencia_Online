@@ -40,7 +40,10 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment.destroy
     authorize @appointment
+
+    redirect_to root_path, notice: "Agendamento cancelado."
   end
 
   def done

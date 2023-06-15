@@ -36,7 +36,7 @@
         <h2 data-map-target="routeDuration"></h2>
       </div>
 
-      <%= button_to 'Cancelar', appointment_done_path(@appointment), method: :patch, class: 'btn btn-danger' %>
+      <%= link_to 'Cancelar', hospital_appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: 'Cancelar agendamento?' }, method: :patch, class: 'btn btn-danger' %>
 
     </div>
 
