@@ -59,7 +59,7 @@ end
 
 position = 1
 
-40.times do
+10.times do
   User.create!(
     email: Faker::Internet.email,
     password: "123123",
@@ -76,6 +76,28 @@ position = 1
     hospital: Hospital.all.sample,
     description: Faker::Lorem.sentence(word_count: rand(3..10)),
     color_protocol: Appointment::COLOR_PROTOCOLS.sample,
+    position: position
+  )
+  position += 1
+end
+
+6.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "123123",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: Faker::Address.full_address,
+    cpf: Faker::Number.number(digits: 11),
+    birthdate: Faker::Date.birthday(min_age: 18)
+  )
+  create_medical_records(User.last)
+
+  Appointment.create!(
+    user: User.last,
+    hospital: Hospital.find(9),
+    description: Faker::Lorem.sentence(word_count: rand(3..10)),
+    color_protocol: "Azul - não apresenta risco",
     position: position
   )
   position += 1
