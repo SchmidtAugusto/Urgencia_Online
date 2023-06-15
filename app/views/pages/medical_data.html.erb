@@ -2,9 +2,9 @@
 INFORMAÇÕES MÉDICAS</div>
 <div class="container acc-details-pages">
   <div class="two_column left">
-    <a data-panel="[]" class="nav_item " href="http://localhost:3000/account_details">Detalhes da conta</a>
-    <a data-panel="[]" class="nav_item " href="http://localhost:3000/plan_details">Detalhes do plano</a>
-    <a data-panel="[]" class="nav_item active" href="http://localhost:3000/medical_data">Informações medicas</a>
+    <%= link_to "Detalhes da conta", account_details_path, class: "nav_item active", data: { panel: [] } %>
+    <%= link_to "Detalhes do plano", plan_details_path, class: "nav_item", data: { panel: [] } %>
+    <%= link_to "Informações médicas", medical_data_path, class: "nav_item", data: { panel: [] } %>
   </div>
   <div class="two_column right" data-controller="medical-records">
     <% if @medical_data.nil? %>
