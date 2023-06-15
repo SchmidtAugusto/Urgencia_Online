@@ -18,7 +18,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    if appointment?(current_user)
+    user = User.find(current_user.id)
+    if appointment?(user)
       @appointment = Appointment.new
       @hospital = Hospital.find(params[:hospital_id])
       authorize @appointment
@@ -99,9 +100,9 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment?(user)
-    @appointment = Appointment.where(user_id: user, done: false)
-    return @appointment.nil?
-    authorize @appointment
+    @app = Appointment.where(user_id: user, done: false)
+    authorize @app
+    return @app.empty?
   end
 
   def set_appointment
