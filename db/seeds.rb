@@ -59,7 +59,7 @@ end
 
 position = 1
 
-10.times do
+40.times do
   User.create!(
     email: Faker::Internet.email,
     password: "123123",
