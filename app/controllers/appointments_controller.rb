@@ -24,7 +24,6 @@ class AppointmentsController < ApplicationController
       @hospital = Hospital.find(params[:hospital_id])
       authorize @appointment
     else
-      authorize @appointment
       redirect_to root_path, notice: "Já possui um agendamento em aberto."
     end
   end
