@@ -18,7 +18,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1.875rem auto;
+  margin: 4rem auto;
+
+  canvas {
+    z-index: 1;
+  }
 
   .waitlist-card {
     background-color: $body-color-custom;
@@ -29,6 +33,36 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     gap: 1rem;
     padding: 1.5rem;
+    .confirmation-modal{
+      display: none;
+    }
+
+    .confirmation-modal.show {
+      height: 100vh;
+      width: 100vw;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+
+      .modal-content {
+        padding: 2rem;
+        margin: 8rem auto;
+        width: 800px;
+        height: 54vh;
+        background-color: $body-color-custom;
+        border-radius: 10px;
+        justify-content: space-between;
+        h2 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
 
     h1 {
       font-size: 24px;

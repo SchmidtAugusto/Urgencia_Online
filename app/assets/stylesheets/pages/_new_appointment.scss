@@ -7,6 +7,29 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  .confirmation-modal{
+    display: none;
+  }
+
+  .confirmation-modal.show {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    .modal-content {
+      padding: 2rem;
+      margin: 8rem auto;
+      width: 800px;
+      height: 54vh;
+      background-color: $body-color-custom;
+      border-radius: 10px;
+      justify-content: space-between;
+    }
+  }
 }
 
 .background-photo {

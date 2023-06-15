@@ -1,5 +1,6 @@
 <div class="background-photo">
-  <div class="appointment-new">
+  <div class="appointment-new"
+       data-controller="confirmation-modal">
    <%# <%= image_tag "Hospital-Show.jpg" %>
     <h1>Triagem</h1>
     <%= simple_form_for [@hospital, @appointment] do |f| %>
@@ -8,9 +9,31 @@
       <%= f.input :color_protocol, collection: Appointment::COLOR_PROTOCOLS, label: "Gravidade" %>
       <%= f.input :description, as: :text, label: 'Descrição (descreva como se sente, informando sua temperatura e pressão):' %>
       <div class="d-flex gap-3">
-        <%= link_to "Cancelar", root_path, class: "btn btn-primary w-100 text-center" %>
-        <%= f.button :submit, "Entrar na fila", class: "btn btn-primary w-100 text-center"%>
+        <%= link_to "Cancelar", root_path, class: "btn btn-danger w-100 text-center" %>
+        <div class="btn btn-primary w-100 text-center"
+                data-confirmation-modal-target="button"
+                data-action="click->confirmation-modal#createPopUp">Entrar na fila</div>
       </div>
+        <div class="confirmation-modal"
+             data-confirmation-modal-target="modal">
+          <div class="modal-content">
+            <h2>Você está prestes a entrar na fila</h2>
+            <p>Obrigado por entrar na fila! Por favor, mantenha-se informado e atento às atualizações de status para garantir uma experiência tranquila.</p>
+            <p>Orientações:</p>
+            <ul>
+              <li>Utilize os recursos online do nosso site para acompanhar sua posição na fila e receber atualizações sobre o tempo de espera estimado.</li>
+              <li>Lembre-se de ter em mãos todos os documentos necessários para agilizar o atendimento quando chegar a sua vez na fila.</li>
+              <li>Esteja preparado para compartilhar informações relevantes sobre sua condição de saúde ao ser chamado. Isso nos ajudará a prestar o melhor atendimento possível.</li>
+              <li>Enquanto espera, recomendamos que aproveite para descansar, se hidratar e realizar pequenas atividades que o mantenham confortável.</li>
+            </ul>
+            <div class="d-flex gap-3">
+            <div class="btn btn-danger w-100 text-center"
+                 data-confirmation-modal-target="closeButton"
+                 data-action="click->confirmation-modal#closePopUp">Voltar</div>
+              <%= f.button :submit, "Confirmar", class: "btn btn-primary w-100 text-center"%>
+            </div>
+          </div>
+        </div>
     <% end %>
   </div>
 </div>
