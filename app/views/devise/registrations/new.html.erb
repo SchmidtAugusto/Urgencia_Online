@@ -1,55 +1,64 @@
-<div class="container-login" id="signup-page">
-    <h2 class="text-center">Inscrever-se</h2>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :first_name,
-                  required: true,
-                  autofocus: true,
-                  label: "Nome",
-                  input_html: { autocomplete: "first_name"}%>
-      <%= f.input :last_name,
-                  required: true,
-                  label: "Sobrenome",
-                  autofocus: true,
-                  input_html: { autocomplete: "last_name" }%>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :cpf,
-                  required: true,
-                  label: "CPF",
-                  autofocus: true,
-                  input_html: { autocomplete: "cpf" }%>
-      <%= f.input :birthdate,
-                  as: :date,
-                  start_year: Date.today.year - 120,
-                  end_year: Date.today.year,
-                  order: [:day, :month, :year],
-                  required: true,
-                  label: "Data de nascimento  ",
-                  autofocus: true,
-                  input_html: { autocomplete: "birthdate" }%>
-      <%= f.input :address,
-                  required: true,
-                  label: "Endereço",
-                  autofocus: true,
-                  input_html: { autocomplete: "address" }%>
-      <%= f.input :password,
-                  required: true,
-                  label: "Senha",
-                  hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  label: "Confirme a senha",
-                  input_html: { autocomplete: "new-password" } %>
-      <div class="btn-primary">
-        <%= f.button :submit, "Cadastrar", class: "mb-3" %>
-        <%= render "devise/shared/links" %>
-      </div>
-      <% end %>
+<div class="login-page" id="signup-page">
+  <div class="card-signup">
+    <div class="registration">
+      <%= image_tag "urg2.png", style: "width: 50%;" %>
+      <p class="text"><strong>Bem-vindo!</strong></p>
+      <p class="text">Cadastre a sua conta agora mesmo</p>
+      <%= link_to "Entrar", new_session_path(resource_name), class: "register-button large-button" %>
     </div>
+    <div class="login">
+      <h2 class="centered-text">Cadastre-se</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    label: "Nome",
+                    input_html: { autocomplete: "first_name"}%>
+        <%= f.input :last_name,
+                    required: true,
+                    label: "Sobrenome",
+                    autofocus: true,
+                    input_html: { autocomplete: "last_name" }%>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :cpf,
+                    required: true,
+                    label: "CPF",
+                    autofocus: true,
+                    input_html: { autocomplete: "cpf" }%>
+        <%= f.input :birthdate,
+                    as: :date,
+                    start_year: Date.today.year - 120,
+                    end_year: Date.today.year,
+                    order: [:day, :month, :year],
+                    required: true,
+                    label: "Data de nascimento  ",
+                    autofocus: true,
+                    input_html: { autocomplete: "birthdate" }%>
+        <%= f.input :address,
+                    required: true,
+                    label: "Endereço",
+                    autofocus: true,
+                    input_html: { autocomplete: "address" }%>
+        <%= f.input :password,
+                    required: true,
+                    label: "Senha",
+                    hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    label: "Confirme a senha",
+                    input_html: { autocomplete: "new-password" } %>
+
+          <%= f.button :submit, "Cadastrar", class: "large-button login-button" %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
