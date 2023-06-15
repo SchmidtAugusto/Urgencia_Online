@@ -18,9 +18,14 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.new
-    @hospital = Hospital.find(params[:hospital_id])
-    authorize @appointment
+    if appointment?(current_user)
+      @appointment = Appointment.new
+      @hospital = Hospital.find(params[:hospital_id])
+      authorize @appointment
+    else
+      authorize @appointment
+      redirect_to root_path, notice: "Já possui um agendamento em aberto."
+    end
   end
 
   def create
@@ -91,6 +96,12 @@ class AppointmentsController < ApplicationController
     else
       "#{position_minutes} minutos"
     end
+  end
+
+  def appointment?(user)
+    @appointment = Appointment.where(user_id: user, done: false)
+    return @appointment.nil?
+    authorize @appointment
   end
 
   def set_appointment
