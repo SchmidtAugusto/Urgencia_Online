@@ -26,7 +26,7 @@ INFORMAÇÕES MÉDICAS</div>
         <%= f.input :allergies, as: :string, input_html: { disabled: true, value: @medical_data.allergies, class: 'account-input' }, label: 'Alergias:' %>
         <%= f.input :weight, as: :integer, input_html: { disabled: true,value: @medical_data.weight, class: 'account-input' }, label: "Peso (Kg):" %>
         <%= f.input :height, as: :integer, input_html: { disabled: true,value: @medical_data.height, class: 'account-input' }, label: "Altura (metros):" %>
-        <%= f.input :health_conditions, as: :string, input_html: { disabled: true, value: @medical_data.health_conditions }, label: "Condições:" %>
+        <%= f.input :health_conditions, as: :string, input_html: { disabled: true, value: @medical_data.health_conditions, class: 'account-input' }, label: "Condições:" %>
         <div class="d-flex gap-3">
         <button id="edit-button" class="btn btn-primary w-100 text-center"
         data-action="click->medical-records#edit"> Editar </button>

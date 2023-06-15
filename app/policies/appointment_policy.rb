@@ -33,4 +33,8 @@ class AppointmentPolicy < ApplicationPolicy
       false
     end
   end
+
+  def appointment?
+    true
+  end
 end
