@@ -6,6 +6,7 @@
           <%= simple_form_for [appointment] do |f| %>
             <%= f.input :name, as: :string, input_html: { disabled: true, value: "#{appointment.user.first_name} #{appointment.user.last_name}" }, label: "Nome:" %>
             <%= f.input :hospital, as: :string, input_html: { disabled: true, value: appointment.hospital.name }, label: "Hospital:" %>
+            <%= f.input :color_protocol, as: :string, input_html: { disabled: true, value: appointment.color_protocol }, label: "Cor:" %>
             <div class="d-flex gap-3">
               <%= f.button :submit, "Finalizar atend.", class: "btn btn-primary w-100 text-center"%>
             </div>

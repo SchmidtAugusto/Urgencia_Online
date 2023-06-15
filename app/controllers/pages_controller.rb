@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   def admin
     if @user.admin
       authorize @user
-      @appointments = Appointment.where(hospital_id: 9, done: false)
+      @appointments = Appointment.where(hospital_id: 9, done: false).order(:id)
     else
       redirect_to root_path
     end
