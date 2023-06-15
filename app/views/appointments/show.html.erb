@@ -36,7 +36,28 @@
         <h2 data-map-target="routeDuration"></h2>
       </div>
 
+      <input class="d-none" data-hospital-subscription-target="routeDuration"
+                            data-map-target="durationValue">
+
       <%= link_to 'Cancelar', hospital_appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: 'Cancelar agendamento?' }, method: :patch, class: 'btn btn-danger' %>
+
+      <div class="confirmation-modal"
+          data-hospital-subscription-target="modal">
+        <div class="modal-content">
+          <h2 class="text-center">Dirija-se ao hospital</h2>
+          <p class="text-center">Prezado paciente, chegou o momento de sua consulta. Por favor, dirija-se ao hospital para receber atendimento médico.</p>
+          <ul>
+            <li>Use máscara facial para proteção adicional. Embora seja opcional, recomendamos o uso em espaços públicos lotados ou quando o distanciamento social não for possível.</li>
+            <li>Lave as mãos frequentemente com água e sabão por pelo menos 20 segundos, ou use álcool em gel, especialmente antes de tocar o rosto ou alimentos.</li>
+            <li>Mantenha uma distância segura de pelo menos 1 metro de outras pessoas sempre que possível, principalmente em locais públicos e filas.</li>
+            <li>Ao dirigir, concentre-se na estrada e evite distrações, como o uso de dispositivos eletrônicos. Sua segurança e a dos outros estão em jogo.</li>
+          </ul>
+          <div class="d-flex gap-3">
+          <div class="btn btn-primary w-100 text-center"
+                data-action="click->hospital-subscription#closePopUp">Confirmar</div>
+          </div>
+        </div>
+      </div>
 
     </div>
 

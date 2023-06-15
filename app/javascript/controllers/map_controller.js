@@ -6,7 +6,7 @@ export default class extends Controller {
     markers: Array
   }
 
-  static targets = ['map', 'routeDuration']
+  static targets = ['map', 'routeDuration', 'durationValue']
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -57,6 +57,8 @@ export default class extends Controller {
   #printDuration(routeDuration) {
     const duration = Math.round(routeDuration / 60) // convert seconds to minutes, rounded up
     this.routeDurationTarget.innerHTML = `${duration} minutos`
+    this.durationValueTarget.value = duration
+    console.log("ETA " + this.durationValueTarget.value);
   }
 
   #getRoute(coordinates) {
